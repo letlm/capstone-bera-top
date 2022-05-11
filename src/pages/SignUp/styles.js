@@ -1,12 +1,13 @@
 import styled from "styled-components";
+import BackgroundBeerTop from "../../assets/BackgroundBeerTop.svg";
 
 export const Header = styled.div`
     display: flex;
-    margin: 20px auto;
+    margin: 5px auto;
     justify-content: space-between;
     width: 90%;
     align-items: center;
-    @media (min-width: 400px) {
+    @media (min-width: 768px) {
         width: 400px;
     }
 
@@ -37,7 +38,7 @@ export const Header = styled.div`
         font-weight: 800;
         line-height: 23px;
         :hover {
-            background: var(--grey-1)
+            background: var(--grey-1);
         }
     }
 `;
@@ -47,19 +48,19 @@ export const Form = styled.div`
     display: flex;
     flex-direction: column;
     width: 90%;
-    margin: 0 auto;
-    height: 80vh;
+    margin: 0 auto 10px auto;
+    height: 90vh;
     border-radius: 4px;
     border: 1px solid var(--yellow-1);
     box-shadow: 0px 4px 4px rgba(255, 193, 37, 0.25);
-    @media (min-width: 400px) {
+    @media (min-width: 768px) {
         width: 400px;
     }
 
     div {
         text-align: center;
         h1 {
-            margin-top: 15px;
+            margin-top: 12px;
             color: var(--yellow-1);
             font-weight: 700;
             line-height: 27px;
@@ -85,7 +86,7 @@ export const Form = styled.div`
                 font-weight: 600;
                 font-size: 13px;
                 margin-left: 5px;
-                margin-bottom: 2px;
+                margin-bottom: 1px;
             }
 
             input {
@@ -95,9 +96,12 @@ export const Form = styled.div`
                 border-radius: 4px;
                 padding: 0 12px;
                 border-radius: 3px;
-                height: 36px;
+                height: 25px;
                 ::placeholder {
                     color: var(--grey-1);
+                }
+                @media (min-width: 820px) {
+                    height: 36px;
                 }
             }
 
@@ -110,9 +114,12 @@ export const Form = styled.div`
 
             span {
                 color: var(--red);
-                font-size: 11px;
+                font-size: 10px;
                 margin-left: 5px;
-                margin-top: 3px;
+                margin-top: 2px;
+                @media (min-width: 820px) {
+                    font-size: 11px;
+                }
             }
         }
 
@@ -121,7 +128,7 @@ export const Form = styled.div`
             font-weight: 500;
             color: var(--black);
             background: var(--yellow-1);
-            height: 37px;
+            height: 30px;
             border: 1px solid var(--yellow-1);
             border-radius: 4px;
             :hover {
@@ -135,14 +142,19 @@ export const Form = styled.div`
             flex-direction: row;
             align-items: center;
             justify-items: center;
+            margin-top: 5px;
 
             label {
-                font-size: 12px;
+                font-size: 11px;
+                line-height: 10px;
             }
 
-            a {
-                font-size: 12px;
+            button {
+                font-size: 11px;
                 color: var(--yellow-1);
+                background: none;
+                border: none;
+                height: 3px;
             }
         }
 
@@ -150,7 +162,7 @@ export const Form = styled.div`
             display: flex;
             flex-direction: row;
             align-items: center;
-            margin: 0 auto;
+            margin: 0 auto -20px auto;
 
             button {
                 margin-left: 5px;
@@ -162,4 +174,38 @@ export const Form = styled.div`
             }
         }
     }
+`;
+
+export const Background = styled.div`
+    @media (min-width: 1100px) {
+        flex: 1;
+        background: url(${BackgroundBeerTop}) no-repeat center, var(--grey-0);
+        display: flex;
+        div {
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+
+            h1 {
+                font-weight: 600;
+                font-size: 80px;
+                letter-spacing: 2px;
+                color: var(--yellow-1);
+            }
+            img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    }
+`;
+
+export const Content = styled.div`
+    flex: 1;
+`;
+
+export const Container = styled.div`
+    height: 100vh;
+    display: flex;
+    align-items: stretch;
 `;
