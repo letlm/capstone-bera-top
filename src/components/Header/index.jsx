@@ -1,8 +1,8 @@
 import HeaderStyled from "./styles.js";
-import Logo from "../../assets/Logo.png";
-import { useHistory, Redirect } from "react-router-dom";
+import Logo from "../../assets/Logo.svg";
+import { useHistory } from "react-router-dom";
 
-export default function Header({ bgColor }) {
+function Header({ bgColor }) {
   const history = useHistory();
   const handleNavigation = (path) => {
     return history.push(path);
@@ -18,3 +18,5 @@ export default function Header({ bgColor }) {
     </HeaderStyled>
   );
 }
+
+export default Header;

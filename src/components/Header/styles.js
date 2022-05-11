@@ -4,7 +4,7 @@ const HeaderStyled = styled.div`
   display: flex;
   padding: 20px 5%;
   justify-content: space-evenly;
-  width: 100vw;
+  width: 100%;
   align-items: center;
   background-color: ${(props) => (props.bgColor ? "#F3F3F3" : "#ffffff")};
 
