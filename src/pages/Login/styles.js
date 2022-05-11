@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import BackgroundBeerTop from "../../assets/BackgroundBeerTop.svg";
 
 export const Header = styled.div`
     display: flex;
@@ -64,6 +65,9 @@ export const Form = styled.div`
             font-weight: 700;
             line-height: 27px;
             font-size: 25px;
+            @media (min-width: 768px) {
+                    font-size: 38px;
+                }
         }
     }
 
@@ -86,6 +90,9 @@ export const Form = styled.div`
                 font-size: 13px;
                 margin-left: 5px;
                 margin-bottom: 2px;
+                @media (min-width: 768px) {
+                    font-size: 16px;
+                }
             }
 
             input {
@@ -98,6 +105,9 @@ export const Form = styled.div`
                 height: 36px;
                 ::placeholder {
                     color: var(--grey-1);
+                }
+                @media (min-width: 768px) {
+                    height: 40px;
                 }
             }
 
@@ -114,7 +124,6 @@ export const Form = styled.div`
                 margin-left: 5px;
                 margin-top: 3px;
             }
-
         }
 
         button {
@@ -130,11 +139,9 @@ export const Form = styled.div`
                 border: 1px solid var(--yellow-0);
             }
         }
-
     }
 
     .signUpSection {
-
         p {
             margin-bottom: 45px;
             font-size: 12px;
@@ -152,6 +159,40 @@ export const Form = styled.div`
             border-radius: 3px;
             :hover {
                 background: var(--grey-2);
+            }
+        }
+    }
+`;
+
+export const Content = styled.div`
+    flex: 1;
+`;
+
+export const Container = styled.div`
+    height: 100vh;
+    display: flex;
+    align-items: stretch;
+`;
+
+export const Background = styled.div`
+    @media (min-width: 1100px) {
+        flex: 1;
+        background: url(${BackgroundBeerTop}) no-repeat center, var(--grey-0);
+        display: flex;
+        div {
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+
+            h1 {
+                font-weight: 600;
+                font-size: 80px;
+                letter-spacing: 2px;
+                color: var(--yellow-1);
+            }
+            img {
+                width: 200px;
+                height: 200px;
             }
         }
     }

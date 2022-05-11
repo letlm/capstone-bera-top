@@ -1,4 +1,5 @@
-import { Form } from "./styles";
+import Logo from "../../assets/Logo.svg";
+import { Header, Form, Container, Content, Background } from "./styles";
 import { beraTopApi } from "../../services";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -44,50 +45,55 @@ function Login() {
     return history.push(path);
   };
 
-  if (authenticated) {
-    return <Redirect to="/" />;
-  }
-  return (
-    <>
-      <div>
-        <Header />
-        <Form>
-          <div>
-            <h1>Login</h1>
-          </div>
-          <form onSubmit={handleSubmit(handleLogin)}>
-            <div>
-              <label>E-mail</label>
-              <input
-                type="email"
-                placeholder="Digite aqui seu e-mail"
-                {...register("email")}
-                className={`${errors.email ? "inputError" : ""}`}
-              />
-              {errors.email && <span>{errors.email.message}</span>}
-            </div>
-            <div>
-              <label>Senha</label>
-              <input
-                type="password"
-                placeholder="Digite aqui sua senha"
-                {...register("password")}
-                className={`${errors.password ? "inputError" : ""}`}
-              />
-              {errors.password && <span>{errors.password.message}</span>}
-            </div>
-            <button type="submit">Entrar</button>
-          </form>
-          <div className="signUpSection">
-            <p>Ainda não possui uma conta?</p>
-            <button onClick={() => handleNavigation("/signup")}>
-              Cadastre-se
-            </button>
-          </div>
-        </Form>
-      </div>
-    </>
-  );
+    if (authenticated) {
+        return <Redirect to="/" />;
+    }
+    return (
+        <Container>
+            <Content>
+                <Header>
+                    <div className="logo">
+                        <h1>BeraTop</h1>
+                        <img src={Logo} alt="logo"></img>
+                    </div>
+                    <button onClick={() => handleNavigation("/")}>Voltar</button>
+                </Header>
+                <Form>
+                    <div>
+                        <h1>Login</h1>
+                    </div>
+                    <form onSubmit={handleSubmit(handleLogin)}>
+                        <div>
+                            <label>E-mail</label>
+                            <input
+                                type="email"
+                                placeholder="Digite aqui seu e-mail"
+                                {...register("email")}
+                                className={`${errors.email ? "inputError" : ""}`}
+                            />
+                            {errors.email && <span>{errors.email.message}</span>}
+                        </div>
+                        <div>
+                            <label>Senha</label>
+                            <input
+                                type="password"
+                                placeholder="Digite aqui sua senha"
+                                {...register("password")}
+                                className={`${errors.password ? "inputError" : ""}`}
+                            />
+                            {errors.password && <span>{errors.password.message}</span>}
+                        </div>
+                        <button type="submit">Entrar</button>
+                    </form>
+                    <div className="signUpSection">
+                        <p>Ainda não possui uma conta?</p>
+                        <button onClick={() => handleNavigation("/signup")}>Cadastre-se</button>
+                    </div>
+                </Form>
+            </Content>
+            <Background/>
+        </Container>
+    );
 }
 
 export default Login;
