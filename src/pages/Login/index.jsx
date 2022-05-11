@@ -5,44 +5,45 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
-import { useHistory, Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, Redirect } from "react-router-dom";
 import { useAuth } from "../../providers/auth";
+import Header from "../../components/Header";
 
 function Login() {
-    const { authenticated} = useAuth();
-    console.log(authenticated)
-    const schema = yup.object().shape({
-        email: yup.string().required("Campo obrigatório").email("Email inválido"),
-        password: yup.string().required("Campo obrigatório"),
+  const { authenticated } = useAuth();
+  console.log(authenticated);
+  const schema = yup.object().shape({
+    email: yup.string().required("Campo obrigatório").email("Email inválido"),
+    password: yup.string().required("Campo obrigatório"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const history = useHistory();
+
+  const handleLogin = async (data) => {
+    const response = await beraTopApi.post("/login", data).catch((err) => {
+      toast.error("E-mail ou senha inválidos");
     });
+    const { user, accessToken } = response.data;
+    console.log(accessToken);
+    localStorage.clear();
+    localStorage.setItem("@BeraTop-Token", JSON.stringify(accessToken));
+    localStorage.setItem("@BeraTop-User", JSON.stringify(user.id));
+    toast.success("Login realizado com sucesso");
+    console.log(authenticated);
+    history.push("/");
+  };
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm({
-        resolver: yupResolver(schema),
-    });
-
-    const history = useHistory();
-
-    const handleLogin = async (data) => {
-        const response = await beraTopApi.post("/login", data).catch((err) => {
-            toast.error("E-mail ou senha inválidos");
-        });
-        const { user, accessToken } = response.data;
-        console.log(accessToken);
-        localStorage.clear();
-        localStorage.setItem("@BeraTop-Token", JSON.stringify(accessToken));
-        localStorage.setItem("@BeraTop-User", JSON.stringify(user.id));
-        toast.success("Login realizado com sucesso");
-        console.log(authenticated)
-        history.push("/");
-    };
-
-    const handleNavigation = (path) => {
-        return history.push(path);
-    };
+  const handleNavigation = (path) => {
+    return history.push(path);
+  };
 
     if (authenticated) {
         return <Redirect to="/" />;

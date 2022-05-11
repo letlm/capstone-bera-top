@@ -1,17 +1,25 @@
+
 import Logo from "../../assets/Logo.svg";
 import { Header, Form, Container, Content, Background } from "./styles.js";
+
 import { beraTopApi } from "../../services";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
-import { useHistory, Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  useHistory,
+  Redirect,
+} from "react-router-dom/cjs/react-router-dom.min";
 import { useAuth } from "../../providers/auth";
+
 import { useState } from "react";
 import TermsModal from "../../components/TermsModal";
 
+
 function SignUp() {
-    const { authenticated } = useAuth();
+  const { authenticated } = useAuth();
+
 
     const [showModal, setShowModal] = useState(false);
 
@@ -43,40 +51,38 @@ function SignUp() {
         ageVerify: yup.bool().default(false).oneOf([true], "É preciso ter mais de 18 anos para realizar o cadastro"),
     });
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm({
-        resolver: yupResolver(formSchema),
-    });
 
-    const history = useHistory();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(formSchema),
+  });
 
-    const handleSignUp = (data) => {
-        console.log(data);
+  const history = useHistory();
 
-        const userData = {
-            name: data.name,
-            email: data.email,
-            password: data.password,
-        };
+  const handleSignUp = (data) => {
+    console.log(data);
 
-        beraTopApi
-            .post("/users", userData)
-            .then((response) => {
-                toast.success("Conta criada com sucesso");
-                history.push("/login");
-            })
-            .catch((err) => {
-                console.log(err);
-                toast.error("Erro ao criar a conta");
-            });
+    const userData = {
+      name: data.name,
+      email: data.email,
+      password: data.password,
     };
 
-    const handleNavigation = (path) => {
-        return history.push(path);
-    };
+    beraTopApi
+      .post("/users", userData)
+      .then((response) => {
+        toast.success("Conta criada com sucesso");
+        history.push("/login");
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Erro ao criar a conta");
+      });
+  };
+
 
     if (authenticated) {
         return <Redirect to="/" />;
@@ -174,6 +180,7 @@ function SignUp() {
             </Content>
         </Container>
     );
+
 }
 
 export default SignUp;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import BackgroundBeerTop from "../../assets/BackgroundBeerTop.svg";
 
+
 export const Header = styled.div`
     display: flex;
     margin: 5px auto;
@@ -40,14 +41,13 @@ export const Header = styled.div`
         :hover {
             background: var(--grey-1);
         }
-    }
-`;
 
-export const Form = styled.div`
-    background: var(--grey-0);
-    display: flex;
-    flex-direction: column;
+    }
+  }
+
+  form {
     width: 90%;
+
     margin: 0 auto 10px auto;
     height: 90vh;
     border-radius: 4px;
@@ -65,8 +65,10 @@ export const Form = styled.div`
             font-weight: 700;
             line-height: 27px;
             font-size: 25px;
+
         }
-    }
+      }
+
 
     form {
         width: 90%;
@@ -121,7 +123,18 @@ export const Form = styled.div`
                     font-size: 11px;
                 }
             }
+
         }
+      }
+
+      span {
+        color: var(--red);
+        font-size: 11px;
+        margin-left: 5px;
+        margin-top: 3px;
+      }
+    }
+
 
         button {
             font-size: 15px;
@@ -164,16 +177,17 @@ export const Form = styled.div`
             align-items: center;
             margin: 0 auto -20px auto;
 
-            button {
-                margin-left: 5px;
-                background: none;
-                border: none;
 
-                height: 20px;
-                color: var(--yellow-1);
-            }
-        }
+      button {
+        margin-left: 5px;
+        background: none;
+        border: none;
+
+        height: 20px;
+        color: var(--yellow-1);
+      }
     }
+  }
 `;
 
 export const Background = styled.div`
