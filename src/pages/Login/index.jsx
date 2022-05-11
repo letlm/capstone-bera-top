@@ -10,7 +10,6 @@ import Header from "../../components/Header";
 
 function Login() {
   const { authenticated } = useAuth();
-  console.log(authenticated);
   const schema = yup.object().shape({
     email: yup.string().required("Campo obrigatório").email("Email inválido"),
     password: yup.string().required("Campo obrigatório"),
