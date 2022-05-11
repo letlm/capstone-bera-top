@@ -1,4 +1,4 @@
-import Comments from "../../imgs/comments.png";
+import Comments from "../../assets/Comments.png";
 import { InfosBeer, LiBeer } from "./styles";
 
 function BeerCard({ product }) {
