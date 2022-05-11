@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
 import { useHistory, Redirect } from "react-router-dom";
-import { useAuth } from "../../providers/auth";
+import { useAuth } from "../../providers/AuthProvider";
 import Header from "../../components/Header";
 
 function Login() {

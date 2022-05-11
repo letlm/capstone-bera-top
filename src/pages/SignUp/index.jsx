@@ -10,7 +10,7 @@ import {
   useHistory,
   Redirect,
 } from "react-router-dom/cjs/react-router-dom.min";
-import { useAuth } from "../../providers/auth";
+import { useAuth } from "../../providers/AuthProvider";
 
 import { useState } from "react";
 import TermsModal from "../../components/TermsModal";
