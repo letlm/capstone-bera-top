@@ -2,7 +2,7 @@ import FooterStyled from "./styles.js";
 import doubleBeer from "../../assets/doubleBeer.svg";
 import { useHistory, Link } from "react-router-dom";
 
-export default function Header() {
+function Footer() {
   const history = useHistory();
   const handleNavigation = (path) => {
     return history.push(path);
@@ -19,3 +19,5 @@ export default function Header() {
     </FooterStyled>
   );
 }
+
+export default Footer;

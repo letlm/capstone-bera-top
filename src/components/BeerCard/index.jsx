@@ -2,23 +2,31 @@ import Comments from "../../assets/Comments.png";
 import { InfosBeer, LiBeer } from "./styles";
 
 function BeerCard({ product }) {
-  const { name, initialPrice, category, alcohol, image, rewiews } = product;
+  const { name, initialPrice, category, alcohol, image, reviews } = product;
 
   const averagePrice = () => {
-    const some = product.price((acc, item) => {
-      acc += item.initialPrice;
-      return acc;
-    }, 0);
-    const average = some / initialPrice.length;
-    return average.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    });
+    const sum =
+      reviews &&
+      reviews.reduce((previousValue, currentValue) => {
+        return previousValue + currentValue.price;
+      }, initialPrice);
+
+    const average = sum / (reviews.length + 1);
+
+    return reviews
+      ? average.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        })
+      : initialPrice.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        });
   };
 
   return (
     <LiBeer>
-      <img clasName="beer" src={image} alt={"name"} />
+      <img className="beer" src={image} alt={"name"} />
       <span>Notas</span>
       <span className="title">{name}</span>
       <InfosBeer>
@@ -26,7 +34,7 @@ function BeerCard({ product }) {
           <span className="category">{category}</span>
           <span>{averagePrice}</span>
           <span className="comments">
-            {rewiews.length}
+            {reviews.length}
             <img src={Comments} alt="Símbolo de comentário" />
           </span>
         </div>

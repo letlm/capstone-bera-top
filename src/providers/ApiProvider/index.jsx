@@ -5,7 +5,6 @@ export const ApiContext = createContext([]);
 
 function ApiProvider({ children }) {
   const [products, setProducts] = useState([]);
-
   useEffect(() => {
     beraTopApi
       .get("products")
