@@ -29,12 +29,10 @@ function FormLogin() {
             toast.error("E-mail ou senha inválidos");
         });
         const { user, accessToken } = response.data;
-        console.log(accessToken);
         localStorage.clear();
         localStorage.setItem("@BeraTop-Token", JSON.stringify(accessToken));
         localStorage.setItem("@BeraTop-User", JSON.stringify(user.id));
         toast.success("Login realizado com sucesso");
-        console.log(authenticated);
         history.push("/");
     };
 
@@ -42,9 +40,9 @@ function FormLogin() {
         return history.push(path);
     };
 
-    // if (authenticated) {
-    //     return <Redirect to="/" />;
-    // }
+    if (authenticated) {
+        return <Redirect to="/" />;
+    }
     return (
         <Form>
             <div>
