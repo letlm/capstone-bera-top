@@ -1,21 +1,24 @@
 import styled from "styled-components";
 
 export const LiBeer = styled.li`
-  width: 221px;
-  height: 210px;
+  width: 230px;
+  height: 230px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   img {
-    width: 220px;
-    height: 120px;
+    height: 150px;
   }
 
   .title {
     font-size: 15px;
     font-family: "Nunito";
     font-weight: bold;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   :hover {
@@ -37,6 +40,10 @@ export const InfosBeer = styled.div`
   .category {
     font-weight: bold;
     font-size: 14px;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   img {
