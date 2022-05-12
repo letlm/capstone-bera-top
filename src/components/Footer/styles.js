@@ -11,8 +11,12 @@ const FooterStyled = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
+    padding: 0 10px;
     width: 100vw;
+
+    @media (min-width: 700px) {
+      padding: 0 40px;
+    }
 
     img {
       width: 75px;
