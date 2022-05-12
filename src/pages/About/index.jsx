@@ -59,7 +59,8 @@ function About() {
   ];
 
   return (
-    <Container>
+    // <Container>
+    <>
       <Header bgColor={"#c4c4c4"}></Header>
       <Container>
         <div>
@@ -102,8 +103,9 @@ function About() {
 
           <InfoDevs position="left" dev1={devs[5]} dev2={devs[4]}></InfoDevs>
         </div>
+        {/* </div> */}
       </Container>
-    </Container>
+    </>
   );
 }
 

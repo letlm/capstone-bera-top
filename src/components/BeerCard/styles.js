@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const LiBeer = styled.li`
-  width: 80vw;
+  width: 100vw;
+  max-width: 700px;
   height: fit-content;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   flex-direction: ${(props) => (props.beerPage ? "row" : "column")};
   align-items: center;
+  align-self: center;
   margin: ${(props) => (props.beerPage ? "10px 0" : "0 10px")};
   padding: ${(props) => (props.beerPage ? "10px" : "0")};
   background-color: var(--white);
@@ -39,7 +41,7 @@ export const LiBeer = styled.li`
     font-size: 15px;
     font-family: "Nunito";
     font-weight: bold;
-    max-width: ${(props) => (props.beerPage ? "150%" : "100%")};
+    max-width: ${(props) => (props.beerPage ? "150%" : "120%")};
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -49,7 +51,7 @@ export const LiBeer = styled.li`
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 50%;
+    max-width: 70%;
     margin: auto;
   }
 
@@ -67,13 +69,13 @@ export const LiBeer = styled.li`
     }
     .beerContainer {
       flex-direction: row;
-      max-width: 80%;
+      max-width: 600px;
     }
   }
 `;
 
 export const InfosBeer = styled.div`
-  width: 221px;
+  width: ${(props) => (props.beerPage ? "100px" : "221px")};
   height: 42px;
   justify-content: flex-end;
   display: flex;
