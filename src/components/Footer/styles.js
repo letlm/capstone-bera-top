@@ -3,7 +3,6 @@ import styled from "styled-components";
 const FooterStyled = styled.div`
   display: flex;
   justify-content: center;
-  width: 100%;
   height: fit-content;
   align-items: center;
   background-color: var(--grey-0);
@@ -11,7 +10,9 @@ const FooterStyled = styled.div`
   .footer {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    padding: 0 40px;
+    width: 100vw;
 
     img {
       width: 75px;
