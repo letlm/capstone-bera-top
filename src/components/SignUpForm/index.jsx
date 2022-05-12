@@ -54,8 +54,6 @@ function SignUpForm() {
     const history = useHistory();
 
     const handleSignUp = (data) => {
-        console.log(data);
-
         const userData = {
             name: data.name,
             email: data.email,
@@ -69,7 +67,6 @@ function SignUpForm() {
                 history.push("/login");
             })
             .catch((err) => {
-                console.log(err);
                 toast.error("Erro ao criar a conta");
             });
     };
@@ -77,9 +74,9 @@ function SignUpForm() {
         return history.push(path);
     };
 
-    // if (authenticated) {
-    //     return <Redirect to="/" />;
-    // }
+    if (authenticated) {
+        return <Redirect to="/" />;
+    }
 
     const handleModal = () => {
         setShowModal(!showModal);
