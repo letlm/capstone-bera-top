@@ -3,15 +3,11 @@ import styled from "styled-components";
 const HeaderStyled = styled.div`
   display: flex;
   padding: 20px 5%;
-  justify-content: space-evenly;
+  justify-content: space-around;
   width: 100%;
   align-items: center;
   background-color: ${(props) => (props.bgColor ? "#F3F3F3" : "#ffffff")};
   box-shadow: ${(props) => (props.bgColor ? "0 2px #C4C4C4" : "")};
-
-  @media (min-width: 770px) {
-    padding: 20px 20%;
-  }
 
   .logo {
     display: flex;
