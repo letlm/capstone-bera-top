@@ -62,32 +62,37 @@ function About() {
   
 
   return (
-    <Container>
-      <Header bgColor={"#c4c4c4"}></Header>
-      <div>
-        <div>
-          <TitlePage>
-            <p>Sobre a</p>
-            <p>
-              BeraTop <img src={BeerImage} alt="Logo da BeraTop"></img>
-            </p>
-          </TitlePage>
-          <ParagraphOne>
-            <p>
-              Sua necessidade: Ter um feedback sobre diversas marcas, tamanhos,
-              teores e modelos de cervejas.
-            </p>
-            <img src={Feedback} alt="feedback do cliente"></img>
-          </ParagraphOne>
 
-          <ParagraphTwo>
-            <img src={Proposito} alt="proposito"></img>
-            <p>
-              Nosso propósito: Te ajudar a poupar seu precioso tempo ao escolher
-              aquela cerveja que tanto pensou em experimentar.
-            </p>
-          </ParagraphTwo>
+    <Container>
+
+      <Header bgColor={"#c4c4c4"}></Header>
+      <Container>
+        <div>
+          <div>
+            <TitlePage>
+              <p>Sobre a</p>
+              <p>
+                BeraTop <img src={BeerImage} alt="Logo da BeraTop"></img>
+              </p>
+            </TitlePage>
+            <ParagraphOne>
+              <p>
+                Sua necessidade: Ter um feedback sobre diversas marcas,
+                tamanhos, teores e modelos de cervejas.
+              </p>
+              <img src={Feedback} alt="feedback do cliente"></img>
+            </ParagraphOne>
+
+            <ParagraphTwo>
+              <img src={Proposito} alt="proposito"></img>
+              <p>
+                Nosso propósito: Te ajudar a poupar seu precioso tempo ao
+                escolher aquela cerveja que tanto pensou em experimentar.
+              </p>
+            </ParagraphTwo>
+          </div>
         </div>
+
 
         <div>
           <WhoDoes>
@@ -116,6 +121,7 @@ function About() {
         </div>
       </div>
     </Container>
+
   );
 }
 
