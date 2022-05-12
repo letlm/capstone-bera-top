@@ -13,13 +13,10 @@ const HeaderStyled = styled.div`
     padding: 20px 20%;
   }
 
-  div {
-    cursor: pointer;
-  }
-
   .logo {
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     h1 {
       color: var(--yellow-1);
