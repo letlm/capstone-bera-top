@@ -24,7 +24,7 @@ function BeerCard({ product }) {
       <InfosBeer>
         <div>
           <span className="category">{category}</span>
-          <span>{averagePrice()}</span>
+          <span>{averagePrice}</span>
           <span className="comments">
             {rewiews.length}
             <img src={Comments} alt="Símbolo de comentário" />
