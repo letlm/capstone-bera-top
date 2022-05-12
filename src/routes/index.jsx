@@ -3,6 +3,7 @@ import SignUp from "../pages/SignUp";
 import Login from "../pages/Login";
 import About from "../pages/About";
 import Dashboard from "../pages/Dashboard";
+import Beer from "../pages/Beer";
 
 function Routes() {
   return (
@@ -18,6 +19,9 @@ function Routes() {
       </Route>
       <Route exact path="/about">
         <About />
+      </Route>
+      <Route exact path="/:id">
+        <Beer />
       </Route>
     </Switch>
   );
