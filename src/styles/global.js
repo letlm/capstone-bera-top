@@ -30,4 +30,15 @@ export default createGlobalStyle`
         text-decoration: none;
     }
 
+    .toastify-color-progress-light {
+        color: "Nunito";
+        background-color: var(--yellow-1);
+        box-shadow: 10px 10px 69px -2px rgba(9,9,8,0.47);
+        color: var(--black);
+    }
+
+    .Toastify__progress-bar-theme--light {
+        background: var(--black);
+    }
+
 `;

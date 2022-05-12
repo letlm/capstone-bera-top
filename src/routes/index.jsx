@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import About from "../pages/About";
 import Dashboard from "../pages/Dashboard";
 import Beer from "../pages/Beer";
+import Suggest from "../pages/Suggest";
 
 function Routes() {
   return (
@@ -19,6 +20,9 @@ function Routes() {
       </Route>
       <Route exact path="/about">
         <About />
+      </Route>
+      <Route exact path="/suggest">
+        <Suggest />
       </Route>
       <Route exact path="/:id">
         <Beer />
