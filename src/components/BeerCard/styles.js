@@ -6,7 +6,7 @@ export const LiBeer = styled.li`
   display: flex;
   justify-content: center;
   flex-direction: ${(props) => (props.beerPage ? "row" : "column")};
-  align-items: ${(props) => (props.beerPage ? "flex-start" : "center")};
+  align-items: center;
   margin: 10px 0;
   background-color: var(--white);
 
@@ -18,6 +18,7 @@ export const LiBeer = styled.li`
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 100%;
   }
 
   button {
@@ -31,14 +32,6 @@ export const LiBeer = styled.li`
     border: 1px solid #ffc125;
     font-weight: bold;
     font-size: 14px;
-  }
-
-  p {
-    padding: 2px 6px;
-    margin: 10px 4px 4px;
-    background-color: var(--grey-0);
-    border-radius: 4px;
-    width: 200px;
   }
 
   .title {

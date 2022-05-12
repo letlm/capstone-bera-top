@@ -12,7 +12,6 @@ function Beer() {
   const { id } = useParams();
   const { products, setProducts, addReview, editReview, deleteReview } =
     useContext(ApiContext);
-  const deviceWidth = window.innerWidth;
 
   return (
     <>
@@ -24,11 +23,10 @@ function Beer() {
             return (
               <>
                 <BeerCard product={product} key={id} beerPage={"beerPage"} />
-                {deviceWidth > 700 && (
-                  <ProductDescription>
-                    Resumo: {product.description}
-                  </ProductDescription>
-                )}
+
+                <ProductDescription>
+                  Resumo: {product.description}
+                </ProductDescription>
               </>
             );
           }

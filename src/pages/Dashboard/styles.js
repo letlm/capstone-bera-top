@@ -11,6 +11,6 @@ export const Context = styled.div`
   display: flex;
   overflow: scroll;
   background-color: var(--grey-2);
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `;
