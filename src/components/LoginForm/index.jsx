@@ -42,9 +42,7 @@ function FormLogin() {
         return history.push(path);
     };
 
-    // if (authenticated) {
-    //     return <Redirect to="/" />;
-    // }
+    
     return (
         <Form>
             <div>
