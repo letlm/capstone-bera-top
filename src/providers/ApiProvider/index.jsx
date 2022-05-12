@@ -5,12 +5,19 @@ export const ApiContext = createContext([]);
 
 function ApiProvider({ children }) {
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
     beraTopApi
-      .get("products")
+      .get(`products?_embed=reviews`)
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
   }, []);
+
+  const beerReviews = (beerId) => {
+    beraTopApi.get(`products/${beerId}?_embed=reviews`)
+    .then((res) => res.data)
+    .catch((err) => console.log(err))
+  };
 
   const register = (data) => {
     beraTopApi.post("signup", data);
@@ -50,6 +57,7 @@ function ApiProvider({ children }) {
         deleteReview,
         register,
         login,
+        beerReviews
       }}
     >
       {children}
