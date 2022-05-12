@@ -1,5 +1,5 @@
 import Logo from "../../assets/Logo.svg";
-import { Header, Form, Container, Content, Background } from "./styles.js";
+import { Form, Container, Content, Background } from "./styles.js";
 
 import { beraTopApi } from "../../services";
 import * as yup from "yup";
@@ -14,6 +14,7 @@ import { useAuth } from "../../providers/AuthProvider";
 
 import { useState } from "react";
 import TermsModal from "../../components/TermsModal";
+import Header from "../../components/Header";
 
 function SignUp() {
   const { authenticated } = useAuth();
@@ -99,14 +100,7 @@ function SignUp() {
     <Container>
       <Background />
       <Content>
-        <Header>
-          <div className="logo">
-            <h1>BeraTop</h1>
-            <img src={Logo} alt="logo"></img>
-          </div>
-
-          <button onClick={() => handleNavigation("/")}>Voltar</button>
-        </Header>
+        <Header />
         <Form>
           <div>
             <h1>Cadastro</h1>
