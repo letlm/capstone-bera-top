@@ -7,7 +7,8 @@ export const LiBeer = styled.li`
   justify-content: center;
   flex-direction: ${(props) => (props.beerPage ? "row" : "column")};
   align-items: center;
-  margin: 10px 0;
+  margin: ${(props) => (props.beerPage ? "10px 0" : "0 10px")};
+  padding: ${(props) => (props.beerPage ? "10px" : "0")};
   background-color: var(--white);
 
   img {
@@ -38,7 +39,7 @@ export const LiBeer = styled.li`
     font-size: 15px;
     font-family: "Nunito";
     font-weight: bold;
-    max-width: 150%;
+    max-width: ${(props) => (props.beerPage ? "150%" : "100%")};
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -49,6 +50,7 @@ export const LiBeer = styled.li`
     flex-direction: column;
     align-items: center;
     max-width: 50%;
+    margin: auto;
   }
 
   :hover {
