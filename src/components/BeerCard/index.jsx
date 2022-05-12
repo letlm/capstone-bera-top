@@ -1,5 +1,6 @@
 import Comments from "../../assets/Comments.png";
 import { InfosBeer, LiBeer } from "./styles";
+import StarRating from "../../components/StarRating";
 
 function BeerCard({ product }) {
   const { name, initialPrice, category, alcohol, image, reviews } = product;
@@ -27,7 +28,7 @@ function BeerCard({ product }) {
   return (
     <LiBeer>
       <img className="beer" src={image} alt={"name"} />
-      <span>Notas</span>
+      <StarRating/>
       <span className="title">{name}</span>
       <InfosBeer>
         <div>
