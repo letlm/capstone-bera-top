@@ -23,41 +23,36 @@ function About() {
   }, [authenticated]);
 
   return (
-    <Container>
-      {/* <Header>
-                <div className="logo" onClick={()=> history.push("/")} >
-                    <h1>BeraTop</h1>
-                    <img src={Logo} alt="Logo da BeraTop"></img>
-                </div>
-                <button onClick={ ()=> history.push("/login") } >{textButton}</button>
-            </Header> */}
+    <>
       <Header bgColor={"#c4c4c4"}></Header>
-      <div>
+      <Container>
         <div>
-          <TitlePage>
-            <p>Sobre a</p>
-            <p>
-              BeraTop <img src={BeerImage} alt="Logo da BeraTop"></img>
-            </p>
-          </TitlePage>
-          <ParagraphOne>
-            <p>
-              Sua necessidade: Ter um feedback sobre diversas marcas, tamanhos,
-              teores e modelos de cervejas.
-            </p>
-            <img src={Feedback} alt="feedback do cliente"></img>
-          </ParagraphOne>
+          <div>
+            <TitlePage>
+              <p>Sobre a</p>
+              <p>
+                BeraTop <img src={BeerImage} alt="Logo da BeraTop"></img>
+              </p>
+            </TitlePage>
+            <ParagraphOne>
+              <p>
+                Sua necessidade: Ter um feedback sobre diversas marcas,
+                tamanhos, teores e modelos de cervejas.
+              </p>
+              <img src={Feedback} alt="feedback do cliente"></img>
+            </ParagraphOne>
 
-          <ParagraphTwo>
-            <img src={Proposito} alt="proposito"></img>
-            <p>
-              Nosso propósito: Te ajudar a poupar seu precioso tempo ao escolher
-              aquela cerveja que tanto pensou em experimentar.
-            </p>
-          </ParagraphTwo>
+            <ParagraphTwo>
+              <img src={Proposito} alt="proposito"></img>
+              <p>
+                Nosso propósito: Te ajudar a poupar seu precioso tempo ao
+                escolher aquela cerveja que tanto pensou em experimentar.
+              </p>
+            </ParagraphTwo>
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </>
   );
 }
 
