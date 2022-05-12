@@ -30,6 +30,7 @@ function BeerCard({ product, beerPage }) {
   return (
     <LiBeer beerPage={beerPage}>
       <img className="beer" src={image} alt={"name"} />
+
       <div className="beerContainer">
         <section>
           <span>Notas</span>
@@ -49,6 +50,7 @@ function BeerCard({ product, beerPage }) {
         {beerPage && <button>Escrever Avaliação</button>}
         {beerPage && deviceWidth < 700 && <p>Resumo: {description}</p>}
       </div>
+
     </LiBeer>
   );
 }
