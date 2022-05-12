@@ -1,7 +1,7 @@
 import HeaderStyled from "./styles.js";
 import Logo from "../../assets/Logo.svg";
 import { useHistory, useParams } from "react-router-dom";
-import { useAuth } from "../../providers/auth";
+import { useAuth } from "../../providers/AuthProvider";
 
 function Header({ bgColor }) {
   const { authenticated } = useAuth();
