@@ -1,12 +1,12 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import ReviewsCard from "../../components/ReviewsCard";
 import { useParams } from "react-router-dom";
 import BeerCard from "../../components/BeerCard";
 import { useContext } from "react";
 import { ApiContext } from "../../providers/ApiProvider";
 
 import { ProductDescription, BeerContainer } from "./styles";
-
 
 function Beer() {
   const { id } = useParams();
@@ -32,6 +32,7 @@ function Beer() {
               </>
             );
           }
+          <ReviewsCard product={product} userName={""} />;
         })}
       </BeerContainer>
 
