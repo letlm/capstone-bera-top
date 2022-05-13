@@ -6,7 +6,6 @@ import BeerCard from "../BeerCard";
 function BeersShowcase() {
   const { products } = useContext(ApiContext);
   const { search } = useContext(SearchContext);
-  console.log(search);
 
   return (
     <>
