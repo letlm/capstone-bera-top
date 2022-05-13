@@ -25,55 +25,6 @@ export const Container = styled.div`
       margin-left: -250px;
     }
   }
-
-  .loader {
-    width: 65px;
-    height: 65px;
-    border: 8px solid #ee9b00a6;
-    border-radius: 50px;
-    position: relative;
-  }
-
-  .loader span {
-    display: block;
-    background: #ee9b00;
-  }
-
-  .loader .hour,
-  .loader .min {
-    width: 6px;
-    height: 22px;
-    border-radius: 50px;
-    position: absolute;
-    top: 24.5px;
-    left: 21px;
-    animation: load9243 1.2s linear infinite;
-    transform-origin: top center;
-  }
-
-  .loader .min {
-    height: 17px;
-    animation: load9243 4s linear infinite;
-  }
-
-  .loader .circel {
-    width: 10px;
-    height: 10px;
-    border-radius: 50px;
-    position: absolute;
-    top: 19px;
-    left: 19px;
-  }
-
-  @keyframes load9243 {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 `;
 
 export const Form = styled.form`
@@ -117,6 +68,65 @@ export const Form = styled.form`
     font-size: 18px;
     width: 240px;
     height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button:hover {
+    background-color: var(--yellow-0);
+  }
+
+  .loader {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    width: 35px;
+    height: 35px;
+    border: 4px solid var(--yellow-2);
+    border-radius: 50px;
+    position: relative;
+  }
+
+  .loader span {
+    display: block;
+    background: var(--yellow-2);
+  }
+
+  .loader .hour,
+  .loader .min {
+    width: 4px;
+    height: 14px;
+    border-radius: 50px;
+    position: absolute;
+    top: 24.5px;
+    left: 11px;
+    animation: load9243 1.2s linear infinite;
+    transform-origin: top center;
+  }
+
+  .loader .min {
+    height: 10px;
+    animation: load9243 4s linear infinite;
+  }
+
+  .loader .circel {
+    width: 5px;
+    height: 5px;
+    border-radius: 50px;
+    position: absolute;
+    top: 22px;
+    left: 11px;
+  }
+
+  @keyframes load9243 {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
   }
 
   .inputError {
