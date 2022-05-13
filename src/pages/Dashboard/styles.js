@@ -13,7 +13,6 @@ export const Context = styled.ul`
   width: 310px;
   height: 305px;
   display: flex;
-
   background-color: var(--grey-2);
   border: 1px solid var(--grey-1);
   border-radius: 4px;
@@ -33,5 +32,29 @@ export const Context = styled.ul`
 
   ::-webkit-scrollbar-thumb {
     background: var(--grey-2);
+  }
+
+  @media (min-width: 630px) {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 620px;
+    height: 500px;
+    justify-content: space-evenly;
+  }
+
+  @media (min-width: 1000px) {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 920px;
+    height: 500px;
+    justify-content: space-evenly;
+  }
+
+  @media (min-width: 1224px) {
+    width: 1100px;
   }
 `;

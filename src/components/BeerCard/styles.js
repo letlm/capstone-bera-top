@@ -61,16 +61,30 @@ export const LiBeer = styled.li`
       props.beerPage ? "" : "10px 9px 42px -20px rgba(0, 0, 0, 0.55)"};
   }
 
+  @media (min-width: 630px) {
+    width: ${(props) => (props.beerPage ? "100vw;" : "36vw")};
+  }
+
   @media (min-width: 700px) {
-    width: 90vw;
+    width: ${(props) => (props.beerPage ? "90vw" : "30vw")};
 
     button {
       height: 20px;
     }
+
     .beerContainer {
       flex-direction: row;
-      max-width: 600px;
+      max-width: ${(props) => (props.beerPage ? "600px;" : "100%")};
     }
+
+    .title {
+      max-width: ${(props) => (props.beerPage ? "150%" : "100%")};
+    }
+  }
+
+  @media (min-width: 1000px) {
+    width: ${(props) => (props.beerPage ? "90vw" : "260px")};
+    margin: ${(props) => (props.beerPage ? "10px 0" : "5px 5px")};
   }
 `;
 
