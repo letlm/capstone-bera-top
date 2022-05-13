@@ -51,7 +51,7 @@ export const TableOnTheLeft = styled.div`
     .contact-media{
         height: 20px;
         width: 20px;
-        margin-right: 10px;
+        margin: 0 5px;
     }
 `;
 
@@ -103,6 +103,6 @@ export const TableOnTheRight = styled.div`
     .contact-media{
         height: 20px;
         width: 20px;
-        margin-left: 10px;
+        margin: 0 5px;
     }
 `;
