@@ -1,25 +1,24 @@
 import { StyledLi } from "./style";
 
-function ReviewsCard({ product, userName }) {
-  return product.length > 0 ? (
+function ReviewsCard({ product }) {
+  return (
     <StyledLi>
+      {console.log(product)}
       <div>
         <p>
-          Nota: <span>{product.reviews.stars}</span>
+          Nota: <span>{product.stars}</span>
         </p>
         <p>
-          Preço: <span>{product.reviews.price}</span>
+          Preço: <span>R${product.price}</span>
         </p>
       </div>
       <p>
         Comentário:{" "}
         <span>
-          {product.reviews.comment} ({userName})
+          {product.comment}
         </span>
       </p>
     </StyledLi>
-  ) : (
-    ""
   );
 }
 
