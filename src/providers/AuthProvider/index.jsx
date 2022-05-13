@@ -7,13 +7,12 @@ function AuthProvider({ children }) {
 
   useEffect(() => {
     const isAuth = localStorage.getItem("@BeraTop-Token");
-    console.log(isAuth);
-
+    
     isAuth ? setAuthenticated(true) : setAuthenticated(false);
   }, []);
 
   return (
-    <AuthContext.Provider value={{ authenticated }}>
+    <AuthContext.Provider value={{ authenticated, setAuthenticated }}>
       {children}
     </AuthContext.Provider>
   );

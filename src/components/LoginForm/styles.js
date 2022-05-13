@@ -79,7 +79,7 @@ export const Form = styled.div`
         }
         button {
             font-size: 15px;
-            font-weight: 500;
+            font-weight: 700;
             color: var(--white);
             background: var(--yellow-1);
             height: 37px;
@@ -88,6 +88,7 @@ export const Form = styled.div`
             :hover {
                 background: var(--yellow-0);
                 border: 1px solid var(--yellow-0);
+                color: var(--black);
             }
         }
     }

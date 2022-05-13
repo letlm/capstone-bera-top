@@ -8,7 +8,7 @@ import { useHistory, Redirect } from "react-router-dom";
 import { useAuth } from "../../providers/AuthProvider";
 
 function FormLogin() {
-    const { authenticated } = useAuth();
+    const { authenticated, setAuthenticated } = useAuth();
     const schema = yup.object().shape({
         email: yup.string().required("Campo obrigatório").email("Email inválido"),
         password: yup.string().required("Campo obrigatório"),
@@ -32,6 +32,7 @@ function FormLogin() {
         localStorage.clear();
         localStorage.setItem("@BeraTop-Token", JSON.stringify(accessToken));
         localStorage.setItem("@BeraTop-User", JSON.stringify(user.id));
+        setAuthenticated(true);
         toast.success("Login realizado com sucesso");
         history.push("/");
     };
