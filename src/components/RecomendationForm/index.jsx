@@ -14,13 +14,20 @@ function RecomendationForm() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
   const handleSuggest = () => {
-    toast("🍻 Agradecemos a sugestão! Logo a Bera estará no nosso catálogo!", {
-      className: "toastify-color-progress-light",
-    });
+    setTimeout(() => {
+      toast(
+        "🍻 Agradecemos a sugestão! Logo a Bera estará no nosso catálogo!",
+        {
+          className: "toastify-color-progress-light",
+        }
+      );
+      reset();
+    }, 500);
   };
 
   return (
