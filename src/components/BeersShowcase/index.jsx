@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ApiContext } from "../../providers/ApiProvider";
+import { SearchContext } from "../../providers/SearchProvider";
 
 import BeerCard from "../BeerCard";
 
@@ -7,12 +8,18 @@ import BeerCard from "../BeerCard";
 
 function BeersShowcase() {
   const { products } = useContext(ApiContext);
-  console.log(products);
+  const { search } = useContext(SearchContext);
+  console.log(search);
+
   return (
     <>
-      {products.map((product, index) => (
-        <BeerCard key={index} product={product} />
-      ))}
+      {search.length > 0
+        ? search.map((prodSearch, index) => (
+            <BeerCard key={index} product={prodSearch} />
+          ))
+        : products.map((product, index) => (
+            <BeerCard key={index} product={product} />
+          ))}
     </>
   );
 }
