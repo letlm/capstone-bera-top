@@ -1,10 +1,7 @@
 import { useContext } from "react";
 import { ApiContext } from "../../providers/ApiProvider";
 import { SearchContext } from "../../providers/SearchProvider";
-
 import BeerCard from "../BeerCard";
-
-// import { Container } from './styles';
 
 function BeersShowcase() {
   const { products } = useContext(ApiContext);
