@@ -1,16 +1,16 @@
 import { TitlePage, ParagraphOne, ParagraphTwo, Container } from "./styles";
 import { WhoDoes } from "./styles";
-import BeerImage from "../../assets/BeerImage79x74.png";
-import Feedback from "../../assets/necessidade46x55.png";
-import Proposito from "../../assets/proposito46x55.png";
+import BeerImage from "../../assets/BeerImage.png";
+import Feedback from "../../assets/Necessidade.png";
+import Proposito from "../../assets/Proposito.png";
 import Header from "../../components/Header";
 import InfoDevs from "../../components/InfoDevs";
-import Leo from "../../assets/leo.png";
-import Jhon from "../../assets/jhon.png";
-import Ana from "../../assets/ana.png";
-import Leticia from "../../assets/let.png";
-import Regis from "../../assets/regis.png";
-import Luan from "../../assets/luan.png";
+import Leo from "../../assets/DevLeo.png";
+import Jhon from "../../assets/DevJhon.png";
+import Ana from "../../assets/DevAna.png";
+import Leticia from "../../assets/DevLet.png";
+import Regis from "../../assets/DevRegis.png";
+import Luan from "../../assets/DevLuan.png";
 
 function About() {
   const devs = [

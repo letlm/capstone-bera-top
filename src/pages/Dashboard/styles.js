@@ -8,7 +8,7 @@ export const Container = styled.div`
   justify-content: space-between;
 `;
 
-export const Context = styled.div`
+export const Context = styled.ul`
   margin: 0 auto;
   width: 310px;
   height: 305px;
