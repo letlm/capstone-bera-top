@@ -7,6 +7,7 @@ import { beraTopApi } from "../../services";
 import { useState } from "react";
 
 function RecomendationForm() {
+  const [removeLoading, setRemoveLoading] = useState(true);
   const [token] = useState(JSON.parse(localStorage.getItem("@BeraTop-Token")));
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório"),
@@ -30,7 +31,9 @@ function RecomendationForm() {
         },
       })
       .then(() => {
+        setRemoveLoading(false);
         setTimeout(() => {
+          setRemoveLoading(true);
           toast(
             "🍻 Agradecemos a sugestão! Logo a Bera estará no nosso catálogo!",
             {
@@ -40,25 +43,23 @@ function RecomendationForm() {
           setValue("name", "");
           setValue("category", "");
           setValue("email", "");
-        }, 500);
+        }, 700);
       })
-      .catch((err) => {
-        toast("❌ Você precisa ter uma conta e estar logado para recomendar!", {
-          className: "toastify-color-progress-error",
-        });
+      .catch(() => {
+        setRemoveLoading(false);
+        setTimeout(() => {
+          setRemoveLoading(true);
+          toast(
+            "❌ Você precisa ter uma conta e estar logado para recomendar!",
+            {
+              className: "toastify-color-progress-error",
+            }
+          );
+          setValue("name", "");
+          setValue("category", "");
+          setValue("email", "");
+        }, 1000);
       });
-  };
-
-  const timeButton = () => {
-    return (
-      <>
-        <div class="loader">
-          <span class="hour"></span>
-          <span class="min"></span>
-          <span class="circel"></span>
-        </div>
-      </>
-    );
   };
 
   return (
@@ -89,7 +90,17 @@ function RecomendationForm() {
           className={`${errors.email ? "inputError" : ""}`}
         />
         {errors.email && <span>{errors.email.message}</span>}
-        <button onClick={() => timeButton()}>Cheers</button>
+        <button>
+          {!removeLoading ? (
+            <div class="loader">
+              <span className="hour"></span>
+              <span className="min"></span>
+              <span className="circel"></span>
+            </div>
+          ) : (
+            <>Cheers</>
+          )}
+        </button>
       </Form>
     </Container>
   );
