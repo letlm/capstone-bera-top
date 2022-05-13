@@ -8,6 +8,7 @@ import { ApiContext } from "../../providers/ApiProvider";
 
 import { ProductDescription, BeerContainer } from "./styles";
 
+
 function Beer() {
   const { id } = useParams();
   const { products, setProducts, addReview, editReview, deleteReview } =
@@ -27,13 +28,16 @@ function Beer() {
                 <ProductDescription>
                   Resumo: {product.description}
                 </ProductDescription>
+                <ul>
+                  {product.reviews.map((prod) => {
+                    return <ReviewsCard product={prod} key={prod.id} />;
+                  })}
+                </ul>
               </>
             );
           }
-          <ReviewsCard product={product} userName={""} />;
         })}
       </BeerContainer>
-
       <Footer />
     </>
   );
