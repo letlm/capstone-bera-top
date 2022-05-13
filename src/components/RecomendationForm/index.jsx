@@ -43,9 +43,9 @@ function RecomendationForm() {
         }, 500);
       })
       .catch((err) => {
-        toast.error(
-          "Você precisa ter uma conta e estar logado para recomendar"
-        );
+        toast("❌ Você precisa ter uma conta e estar logado para recomendar!", {
+          className: "toastify-color-progress-error",
+        });
       });
   };
 

@@ -6,8 +6,7 @@ import BeerCard from "../../components/BeerCard";
 import { useContext } from "react";
 import { ApiContext } from "../../providers/ApiProvider";
 
-import { ProductDescription, BeerContainer } from "./styles";
-
+import { ProductDescription, BeerContainer, Container } from "./styles";
 
 function Beer() {
   const { id } = useParams();
