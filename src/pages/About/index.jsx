@@ -11,49 +11,50 @@ import Ana from "../../assets/ana.png";
 import Leticia from "../../assets/let.png";
 import Regis from "../../assets/regis.png";
 import Luan from "../../assets/luan.png";
+import Footer from "../../components/Footer";
 
 function About() {
   const devs = [
     {
       name: "Leonardo R.",
       work: "Quality Assurance",
-      linkendin: "/leorocha",
-      github: "/leorocha",
+      linkedin: "/rochaleonardof",
+      github: "/leonrockk",
       image: Leo,
     },
     {
       name: "Jhon Muller",
       work: "Quality Assurance",
-      linkendin: "/jhonmuller",
-      github: "/jhonmuller",
+      linkedin: "/jhon-muller-082a3420a",
+      github: "/jhonmullerfreitas",
       image: Jhon,
     },
     {
       name: "Ana Laura",
       work: "Product Owner",
-      linkendin: "/analaura",
-      github: "/analaura",
+      linkedin: "/ana-laura-nunes-developer",
+      github: "/analauranunes",
       image: Ana,
     },
     {
       name: "Leticia L.",
       work: "Tech Leader",
-      linkendin: "/leticia",
-      github: "/leticia",
+      linkedin: "/leticia-leal-moreira",
+      github: "/letlm",
       image: Leticia,
     },
     {
       name: "Régis S.",
       work: "Scrum Master",
-      linkendin: "/regis",
-      github: "/regis",
+      linkedin: "/régis-theobald-silveira-04279514b",
+      github: "/xregizzz",
       image: Regis,
     },
     {
       name: "Luan C.",
       work: "Quality Assurance",
-      linkendin: "/luan",
-      github: "/luan",
+      linkedin: "/luan-catarino-curupaná-27857112a",
+      github: "/luancatarino",
       image: Luan,
     },
   ];
@@ -89,7 +90,7 @@ function About() {
           </div>
         </div>
 
-        <div>
+        <div className="container" >
           <WhoDoes>
             <p>Quem faz a</p>
             <p>
@@ -105,6 +106,7 @@ function About() {
         </div>
         {/* </div> */}
       </Container>
+      <Footer></Footer>
     </>
   );
 }
