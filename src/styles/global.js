@@ -30,8 +30,27 @@ export default createGlobalStyle`
         text-decoration: none;
     }
 
+    .toastify-color-progress-error{
+        font-family: "Nunito";
+        font-size: 18px;
+        font-weight: bold;
+        background-color: var(--yellow-1);
+        box-shadow: 10px 10px 69px -2px rgba(9,9,8,0.47);
+        color: var(--red);
+    }
+
     .toastify-color-progress-light {
-        color: "Nunito";
+        font-family: "Nunito";
+        font-weight: bold;
+        background-color: var(--yellow-1);
+        box-shadow: 10px 10px 69px -2px rgba(9,9,8,0.47);
+        color: var(--black);
+    }
+
+    .toastify-color-progress-success {
+        font-family: "Nunito";
+        font-weight: bold;
+        font-size: 18px;
         background-color: var(--yellow-1);
         box-shadow: 10px 10px 69px -2px rgba(9,9,8,0.47);
         color: var(--black);

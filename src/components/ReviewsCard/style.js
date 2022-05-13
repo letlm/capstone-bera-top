@@ -8,6 +8,7 @@ export const StyledLi = styled.li`
     background: var(--grey-0);
     border-radius: 4px;
     max-width: 654px;
+    border: 1px solid var(--yellow-1);
     
     p{
         font-weight: bold;
