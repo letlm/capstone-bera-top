@@ -1,6 +1,6 @@
 import HeaderStyled from "./styles.js";
 import Logo from "../../assets/Logo.svg";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory} from "react-router-dom";
 import { useAuth } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
 
