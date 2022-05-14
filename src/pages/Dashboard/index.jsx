@@ -10,6 +10,9 @@ function Dashboard() {
     <Container>
       <Header bgColor={"#C4C4C4"} />
       <Search />
+      <div className="navProvisorio">
+        Div figtícia dos botões de filtro - apagar quando colocar a nav
+      </div>
       <Context>
         <BeersShowcase />
       </Context>

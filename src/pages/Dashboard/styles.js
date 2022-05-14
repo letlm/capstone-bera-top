@@ -6,12 +6,38 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+
+  .navProvisorio {
+    /* width: 286px; */
+    height: 40px;
+    border: 1px solid black;
+    font-size: 15px;
+    /* margin-top: -50px; */
+    width: 90%;
+    max-width: 400px;
+  }
+
+  @media (min-width: 630px) {
+    .navProvisorio {
+      max-width: 450px;
+      margin: 0;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .navProvisorio {
+      max-width: 800px;
+      margin-top: 4px;
+      margin-bottom: -20px;
+    }
+  }
 `;
 
 export const Context = styled.ul`
   margin: 0 auto;
   width: 310px;
-  height: 305px;
+  height: 350px;
   display: flex;
   background-color: var(--grey-2);
   border: 1px solid var(--grey-1);
@@ -35,7 +61,7 @@ export const Context = styled.ul`
   }
 
   @media (min-width: 630px) {
-    margin-top: 25px;
+    margin-top: 5px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -45,11 +71,11 @@ export const Context = styled.ul`
   }
 
   @media (min-width: 1000px) {
-    margin-top: 25px;
+    margin-top: 0px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 920px;
+    width: 720px;
     height: 500px;
     justify-content: space-evenly;
   }
