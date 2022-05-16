@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import Modal from "react-modal";
 import { CloseButton, Container } from "./styles";
 import Button from "../Button";
-import { useAuth } from "../../providers/auth";
+import { useAuth } from "../../providers/AuthProvider";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../providers/ModalProvider";
 
@@ -26,17 +26,17 @@ function ModalComponent({ isEdited = false }) {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  function onSubmit(object) {
+  const onSubmit = (object) => {
     console.log(object);
-  }
+  };
 
-  function onSubmitEdit(object) {
+  const onSubmitEdit = (object) => {
     console.log("teste");
-  }
+  };
 
-  function onSubmitDel(id) {
+  const onSubmitDel = (id) => {
     console.log("teste");
-  }
+  };
 
   const customStyles = {
     overlay: {
