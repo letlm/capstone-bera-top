@@ -10,17 +10,17 @@ function StarRatingAvarage({ reviews }) {
 
     return (
         <Star>
-            {[...Array(avarageRating)].map((star) => {
+            {[...Array(avarageRating)].map((star, index) => {
                 return (
-                    <label>
+                    <label key={index}>
                         <FaStar color="#FFC125" />
                     </label>
                 );
             })}
 
-            {[...Array(5 - avarageRating)].map((star) => {
+            {[...Array(5 - avarageRating)].map((star, index) => {
                 return (
-                    <label>
+                    <label key={index}>
                         <FaStar color="#E4E5E9" />
                     </label>
                 );
