@@ -9,7 +9,7 @@ import {
   Redirect,
 } from "react-router-dom/cjs/react-router-dom.min";
 import { useAuth } from "../../providers/AuthProvider";
-
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useState } from "react";
 import TermsModal from "../../components/TermsModal";
 
@@ -17,6 +17,8 @@ function SignUpForm() {
   const { authenticated } = useAuth();
 
   const [showModal, setShowModal] = useState(false);
+  const [typePassword, setTypePassword] = useState("password");
+  const [typeConfirmPassword, setTypeConfirmPassword] = useState("password");
 
   const formSchema = yup.object().shape({
     name: yup
@@ -61,6 +63,22 @@ function SignUpForm() {
   });
 
   const history = useHistory();
+
+  const hiddenPassword = () => {
+    if (typePassword === "password") {
+      setTypePassword("text");
+    } else {
+      setTypePassword("password");
+    }
+  };
+
+  const hiddenConfirmPassword = () => {
+    if (typeConfirmPassword === "password") {
+      setTypeConfirmPassword("text");
+    } else {
+      setTypeConfirmPassword("password");
+    }
+  };
 
   const handleSignUp = (data) => {
     const userData = {
@@ -134,21 +152,35 @@ function SignUpForm() {
         <div>
           <label>Senha</label>
           <input
-            type="password"
+            type={typePassword}
             placeholder="Digite aqui sua senha"
             {...register("password")}
             className={`${errors.password ? "inputError" : ""}`}
           />
+          <p className="hiddePass" onClick={() => hiddenPassword()}>
+            {typePassword === "password" ? (
+              <AiFillEye />
+            ) : (
+              <AiFillEyeInvisible />
+            )}
+          </p>
           {errors.password && <span>{errors.password.message}</span>}
         </div>
         <div>
           <label>Confirmar senha</label>
           <input
-            type="password"
+            type={typeConfirmPassword}
             placeholder="Confirme sua senha"
             {...register("confirmPassword")}
             className={`${errors.confirmPassword ? "inputError" : ""}`}
           />
+          <p className="hiddePass" onClick={() => hiddenConfirmPassword()}>
+            {typePassword === "password" ? (
+              <AiFillEye />
+            ) : (
+              <AiFillEyeInvisible />
+            )}
+          </p>
           {errors.confirmPassword && (
             <span>{errors.confirmPassword.message}</span>
           )}

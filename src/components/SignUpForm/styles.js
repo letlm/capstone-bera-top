@@ -80,6 +80,28 @@ export const Form = styled.div`
           color: var(--red);
         }
       }
+
+      .hiddePass {
+        position: absolute;
+        margin-top: 23px;
+        margin-left: 230px;
+        color: var(--grey-1);
+        font-size: large;
+
+        @media (min-width: 375px) {
+          margin-left: 260px;
+        }
+
+        @media (min-width: 425px) {
+          margin-left: 310px;
+        }
+
+        @media (min-width: 820px) {
+          margin-top: 28px;
+          margin-left: 320px;
+        }
+      }
+
       span {
         color: var(--red);
         font-size: 10px;
