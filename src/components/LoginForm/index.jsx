@@ -4,11 +4,14 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
-import { useHistory, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useAuth } from "../../providers/AuthProvider";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { useState } from "react";
 
 function FormLogin() {
-  const { setAuthenticated} = useAuth();
+  const { setAuthenticated } = useAuth();
+  const [typePassword, setTypePassword] = useState("password");
   const schema = yup.object().shape({
     email: yup.string().required("Campo obrigatório").email("Email inválido"),
     password: yup.string().required("Campo obrigatório"),
@@ -24,6 +27,14 @@ function FormLogin() {
 
   const history = useHistory();
 
+  const handleChange = () => {
+    if (typePassword === "password") {
+      setTypePassword("text");
+    } else {
+      setTypePassword("password");
+    }
+  };
+
   const handleLogin = async (data) => {
     const response = await beraTopApi.post("/login", data).catch((err) => {
       toast("❌ E-mail ou senha inválidos", {
@@ -34,7 +45,7 @@ function FormLogin() {
     localStorage.clear();
     localStorage.setItem("@BeraTop-Token", JSON.stringify(accessToken));
     localStorage.setItem("@BeraTop-User", JSON.stringify(user.id));
-    setAuthenticated(true)
+    setAuthenticated(true);
     toast("🍺 Login realizado com sucesso", {
       className: "toastify-color-progress-success",
     });
@@ -64,11 +75,19 @@ function FormLogin() {
         <div>
           <label>Senha</label>
           <input
-            type="password"
+            type={typePassword}
             placeholder="Digite aqui sua senha"
             {...register("password")}
             className={`${errors.password ? "inputError" : ""}`}
           />
+          <p onClick={() => handleChange()}>
+            {typePassword === "password" ? (
+              <AiFillEye />
+            ) : (
+              <AiFillEyeInvisible />
+            )}
+          </p>
+
           {errors.password && <span>{errors.password.message}</span>}
         </div>
         <button type="submit">Entrar</button>

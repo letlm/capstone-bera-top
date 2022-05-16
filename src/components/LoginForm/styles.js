@@ -85,6 +85,19 @@ export const Form = styled.div`
           color: var(--red);
         }
       }
+
+      p {
+        position: absolute;
+        margin-top: 30px;
+        margin-left: 240px;
+        color: var(--grey-1);
+        font-size: large;
+
+        @media (min-width: 768px) {
+          margin-top: 35px;
+        }
+      }
+
       span {
         color: var(--red);
         font-size: 11px;
