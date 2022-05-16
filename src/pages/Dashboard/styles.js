@@ -39,7 +39,7 @@ export const Context = styled.ul`
   width: 310px;
   height: 350px;
   display: flex;
-  background-color: var(--grey-2);
+  background-color: var(--grey-0);
   border: 1px solid var(--grey-1);
   border-radius: 4px;
   justify-content: flex-start;
