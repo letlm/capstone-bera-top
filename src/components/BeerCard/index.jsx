@@ -7,6 +7,7 @@ import StarRatingAvarage from "../StarRatingAvarage"
 function BeerCard({ product, beerPage }) {
    
     const { name, initialPrice, category, alcohol, image, reviews, description } = product;    
+    
 
     const averagePrice = () => {
         const sum =
