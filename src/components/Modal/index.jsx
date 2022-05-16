@@ -3,17 +3,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 
 import Modal from "react-modal";
-import { CloseButton, Container } from "./styles";
-import Button from "../Button";
+
+import { CloseButton, Container, ContentModal } from "./styles";
 import { useAuth } from "../../providers/AuthProvider";
-import { useHistory } from "react-router-dom";
 import { useModal } from "../../providers/ModalProvider";
 
 function ModalComponent({ isEdited = false }) {
   const { modalIsOpen, handleCloseModal } = useModal();
 
   const { authenticated } = useAuth();
-  const history = useHistory();
 
   const schema = yup.object().shape({
     comment: yup.string().required(" Campo obrigatório"),
@@ -57,22 +55,23 @@ function ModalComponent({ isEdited = false }) {
 
   return (
     <div>
-      {authenticated ? (
+      {!authenticated ? (
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={handleCloseModal}
           style={customStyles}
         >
-          <Container>
-            <h2>
+          <ContentModal>
+            <CloseButton onClick={handleCloseModal}> X </CloseButton>
+            <h3>
               Ops, você não está logado! Faça seu login ou cadastre-se para
               deixar uma avaliação
-            </h2>
+            </h3>
             <div>
-              <Button onClick={history.push("/signup")}>Cadastre-se</Button>
-              <Button onClick={history.push("/login")}>Login</Button>
+              <a href="/signup">Cadastre-se</a>
+              <a href="/login">Login</a>
             </div>
-          </Container>
+          </ContentModal>
         </Modal>
       ) : (
         <Modal
@@ -119,13 +118,13 @@ function ModalComponent({ isEdited = false }) {
               {isEdited ? (
                 <div>
                   {" "}
-                  <Button onClick={(event) => onSubmitDel(event.id)}>
+                  <button onClick={(event) => onSubmitDel(event.id)}>
                     Deletar
-                  </Button>{" "}
-                  <Button type="submit">Editar</Button>
+                  </button>{" "}
+                  <button type="submit">Editar</button>
                 </div>
               ) : (
-                <Button type="submit">Enviar Avaliação</Button>
+                <button type="submit">Enviar Avaliação</button>
               )}
             </form>
           </Container>

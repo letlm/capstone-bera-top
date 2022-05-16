@@ -130,6 +130,47 @@ export const Container = styled.div`
   }
 `;
 
+export const ContentModal = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffff;
+  padding: 25px;
+  align-items: center;
+  width: 90vw;
+
+  a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: var(--yellow-1);
+    border-radius: 4px;
+    color: black;
+    width: 15vw;
+    font-family: "Nunito";
+    font-weight: bolder;
+    text-align: center;
+    margin: 5px;
+  }
+
+  h3 {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  @media (min-width: 768px) {
+    width: 60vw;
+  }
+
+  @media (min-width: 1024px) {
+    width: 40vw;
+  }
+
+  @media (min-width: 1400px) {
+    width: 35vw;
+    padding: 30px;
+  }
+`;
 export const CloseButton = styled.div`
   display: flex;
   justify-content: center;
