@@ -175,7 +175,7 @@ function SignUpForm() {
             className={`${errors.confirmPassword ? "inputError" : ""}`}
           />
           <p className="hiddePass" onClick={() => hiddenConfirmPassword()}>
-            {typePassword === "password" ? (
+            {typeConfirmPassword === "password" ? (
               <AiFillEye />
             ) : (
               <AiFillEyeInvisible />
