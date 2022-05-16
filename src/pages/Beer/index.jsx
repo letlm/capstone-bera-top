@@ -14,6 +14,8 @@ function Beer() {
     useContext(ApiContext);
 
   const userStorage = Number(localStorage.getItem("@BeraTop-User"));
+  const tokenStorage = JSON.parse(localStorage.getItem("@BeraTop-Token"))
+  console.log(tokenStorage)
 
   return (
     <>
@@ -37,6 +39,8 @@ function Beer() {
                         product={prod}
                         key={prod.id}
                         sameUser={sameUser}
+                        idReview={prod.id}
+                        token={tokenStorage}
                       />
                     );
                   })}

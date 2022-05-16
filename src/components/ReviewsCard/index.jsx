@@ -1,8 +1,12 @@
 import { StyledButtons, StyledContainer, StyledLi } from "./styles";
 import { FiEdit } from "react-icons/fi";
 import { FiTrash2 } from "react-icons/fi";
+import { useContext } from "react";
+import { ApiContext } from "../../providers/ApiProvider";
 
-function ReviewsCard({ product, sameUser = false }) {
+function ReviewsCard({ product, sameUser = false, idReview, token }) {
+  const { deleteReview } = useContext(ApiContext);
+
   return (
     <StyledLi>
       {console.log(product)}
@@ -25,7 +29,7 @@ function ReviewsCard({ product, sameUser = false }) {
             <FiEdit />
           </button>
           <button>
-            <FiTrash2 />
+            <FiTrash2 onClick={() => deleteReview(token, idReview)} />
           </button>
         </StyledButtons>
       )}

@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { beraTopApi } from "../../services";
 
 export const ApiContext = createContext([]);
@@ -13,12 +14,6 @@ function ApiProvider({ children }) {
       .catch((err) => console.log(err));
   }, []);
 
-  const beerReviews = (beerId) => {
-    beraTopApi.get(`products/${beerId}?_embed=reviews`)
-    .then((res) => res.data)
-    .catch((err) => console.log(err))
-  };
-
   const register = (data) => {
     beraTopApi.post("signup", data);
   };
@@ -27,24 +22,34 @@ function ApiProvider({ children }) {
     beraTopApi.post("login", data);
   };
 
-  const addReview = (idProduct, token, data) => {
-    beraTopApi.post(`products/${idProduct}/reviews`, data, {
+  const addReview = (token, data) => {
+    beraTopApi.post("reviews", data, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        "Authorization": `Bearer ${token}`,
       },
     });
   };
 
-  const editReview = (idProduct, idReview, token, data) => {
-    beraTopApi.patch(`products/${idProduct}/reviews/${idReview}`, data, {
+  const editReview = (idReview, token, data) => {
+    beraTopApi.patch(`reviews/${idReview}`, data, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        "Authorization": `Bearer ${token}`,
       },
     });
   };
 
-  const deleteReview = (idProduct, idReview) => {
-    beraTopApi.delete(`products/${idProduct}/reviews/${idReview}`);
+  const deleteReview = (token, idReview) => {
+    beraTopApi.delete(`reviews/${idReview}`, {
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
+    })
+    .then(() => toast("Comentário deletado com sucesso", {
+      className: "toastify-color-progress-success",
+    }))
+    .catch(() => toast("Ops! Algo deu errado, tente novamente", {
+      className: "toastify-color-progress-error",
+    }))
   };
 
   return (
@@ -57,7 +62,6 @@ function ApiProvider({ children }) {
         deleteReview,
         register,
         login,
-        beerReviews
       }}
     >
       {children}
