@@ -13,6 +13,8 @@ function Beer() {
   const { products, setProducts, addReview, editReview, deleteReview } =
     useContext(ApiContext);
 
+  const userStorage = Number(localStorage.getItem("@BeraTop-User"));
+
   return (
     <>
       <Header bgColor={"#F3F3F3"} />
@@ -29,7 +31,14 @@ function Beer() {
                 </ProductDescription>
                 <ul>
                   {product.reviews.map((prod) => {
-                    return <ReviewsCard product={prod} key={prod.id} />;
+                    const sameUser = prod.userId === userStorage;
+                    return (
+                      <ReviewsCard
+                        product={prod}
+                        key={prod.id}
+                        sameUser={sameUser}
+                      />
+                    );
                   })}
                 </ul>
               </>
