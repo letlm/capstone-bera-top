@@ -2,16 +2,16 @@ import { createContext, useContext, useState } from "react";
 
 export const ModalContext = createContext();
 
-export const ModalProvider = ({ children }) => {
+function ModalProvider({ children }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  function handleOpenModal() {
+  const handleOpenModal = () => {
     setModalIsOpen(true);
-  }
+  };
 
-  function handleCloseModal() {
+  const handleCloseModal = () => {
     setModalIsOpen(false);
-  }
+  };
 
   return (
     <ModalContext.Provider
@@ -20,6 +20,8 @@ export const ModalProvider = ({ children }) => {
       {children}
     </ModalContext.Provider>
   );
-};
+}
 
 export const useModal = () => useContext(ModalContext);
+
+export default ModalProvider;
