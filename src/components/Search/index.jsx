@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import Magnifier from "../../assets/Magnifier.svg";
 import { ApiContext } from "../../providers/ApiProvider";
 import { SearchContext } from "../../providers/SearchProvider";
-import { StyledContainer } from "./style";
+import { StyledContainer } from "./styles";
 
 function Search() {
   const [changeSearch, setChangeSearch] = useState("");
