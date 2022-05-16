@@ -1,12 +1,10 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Comments from "../../assets/Comments.png";
 import { InfosBeer, LiBeer } from "./styles";
-import StarRatingAvarage from "../StarRatingAvarage"
-
+import StarRatingAvarage from "../StarRatingAvarage";
 
 function BeerCard({ product, beerPage }) {
-   
-    const { name, initialPrice, category, alcohol, image, reviews, description } = product;    
+    const { name, initialPrice, category, alcohol, image, reviews } = product;
 
     const averagePrice = () => {
         const sum =
@@ -40,7 +38,7 @@ function BeerCard({ product, beerPage }) {
 
             <div className="beerContainer">
                 <section>
-                    <StarRatingAvarage reviews={reviews}/>
+                    <StarRatingAvarage reviews={reviews} />
                     <span className="title">{name}</span>
                     <InfosBeer beerPage={beerPage}>
                         <div>
