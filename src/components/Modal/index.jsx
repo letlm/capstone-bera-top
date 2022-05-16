@@ -5,20 +5,15 @@ import { useForm } from "react-hook-form";
 import Modal from "react-modal";
 import { CloseButton, Container } from "./styles";
 import Button from "../Button";
+import { useAuth } from "../../providers/auth";
+import { useHistory } from "react-router-dom";
+import { useModal } from "../../providers/ModalProvider";
 
-function ModalComponent({ modalIsOpen, handleCloseModal, isEdited = false }) {
-  //   const [modalIsOpen, setModalIsOpen] = useState(false);
+function ModalComponent({ isEdited = false }) {
+  const { modalIsOpen, handleCloseModal } = useModal();
 
-  //   function handleOpenModal() {
-  //     setModalIsOpen(true);
-  //   }
-
-  //   function handleCloseModal() {
-  //     setModalIsOpen(false);
-  //   }
-
-  //para usar o modal adicione o state e as funcoes a cima na pagina desejada e invoque
-  //o componente passando as props
+  const { authenticated } = useAuth();
+  const history = useHistory();
 
   const schema = yup.object().shape({
     comment: yup.string().required(" Campo obrigatório"),
@@ -62,61 +57,80 @@ function ModalComponent({ modalIsOpen, handleCloseModal, isEdited = false }) {
 
   return (
     <div>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={handleCloseModal}
-        style={customStyles}
-      >
-        <Container>
-          <CloseButton onClick={handleCloseModal}> X </CloseButton>
-          <form
-            onSubmit={
-              isEdited ? handleSubmit(onSubmitEdit) : handleSubmit(onSubmit)
-            }
-          >
-            <section>
-              <label>Comentário: </label>
-              <textarea name="comment" type="text" {...register("comment")} />
-              <span className="error">{errors.comment?.message}</span>
-            </section>
-
+      {authenticated ? (
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={handleCloseModal}
+          style={customStyles}
+        >
+          <Container>
+            <h2>
+              Ops, você não está logado! Faça seu login ou cadastre-se para
+              deixar uma avaliação
+            </h2>
             <div>
+              <Button onClick={history.push("/signup")}>Cadastre-se</Button>
+              <Button onClick={history.push("/login")}>Login</Button>
+            </div>
+          </Container>
+        </Modal>
+      ) : (
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={handleCloseModal}
+          style={customStyles}
+        >
+          <Container>
+            <CloseButton onClick={handleCloseModal}> X </CloseButton>
+            <form
+              onSubmit={
+                isEdited ? handleSubmit(onSubmitEdit) : handleSubmit(onSubmit)
+              }
+            >
               <section>
-                <label>Nota: </label>
-                <select name="rating" {...register("rating")}>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
+                <label>Comentário: </label>
+                <textarea name="comment" type="text" {...register("comment")} />
+                <span className="error">{errors.comment?.message}</span>
               </section>
 
-              <section>
-                <label>Preço:</label>
-                <input
-                  name="price"
-                  type="number"
-                  {...register("price")}
-                  min="0"
-                />
-                <span className="error">{errors.price?.message}</span>
-              </section>
-            </div>
-            {isEdited ? (
               <div>
-                {" "}
-                <Button onClick={(event) => onSubmitDel(event.id)}>
-                  Deletar
-                </Button>{" "}
-                <Button type="submit">Editar</Button>
+                <section>
+                  <label>Nota: </label>
+                  <select name="rating" {...register("rating")}>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </section>
+
+                <section>
+                  <label>Preço:</label>
+                  <input
+                    name="price"
+                    type="number"
+                    {...register("price")}
+                    min="0"
+                  />
+                  <span className="error">{errors.price?.message}</span>
+                </section>
               </div>
-            ) : (
-              <Button type="submit">Enviar Avaliação</Button>
-            )}
-          </form>
-        </Container>
-      </Modal>
+              {isEdited ? (
+                <div>
+                  {" "}
+                  <Button onClick={(event) => onSubmitDel(event.id)}>
+                    Deletar
+                  </Button>{" "}
+                  <Button type="submit">Editar</Button>
+                </div>
+              ) : (
+                <Button type="submit">Enviar Avaliação</Button>
+              )}
+            </form>
+          </Container>
+        </Modal>
+      )}
     </div>
   );
 }
