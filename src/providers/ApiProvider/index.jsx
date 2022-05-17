@@ -27,11 +27,23 @@ function ApiProvider({ children }) {
   };
 
   const addReview = (token, data) => {
-    beraTopApi.post("reviews", data, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    beraTopApi
+      .post("reviews", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        toast("🍺 Review adicionada com sucesso", {
+          className: "toastify-color-progress-success",
+        });
+      })
+      .catch((err) => {
+        toast("❌ Erro ao adicionar o comentário", {
+          className: "toastify-color-progress-error",
+        });
+      });
   };
 
   const editReview = (idReview, token, data) => {
