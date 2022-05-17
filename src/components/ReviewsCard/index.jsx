@@ -6,7 +6,6 @@ import { ApiContext } from "../../providers/ApiProvider";
 import { FaStar } from "react-icons/fa";
 
 function ReviewsCard({ product, sameUser = false, idReview, token }) {
-
   const { deleteReview, reviews, setReviews } = useContext(ApiContext);
 
   const handleDelete = () => {
@@ -17,33 +16,49 @@ function ReviewsCard({ product, sameUser = false, idReview, token }) {
 
   return (
     <StyledLi>
-      {console.log(product)}
       <StyledContainer>
-        <div>
-          <p>
-            Nota: <span>{product.stars}</span>
-          </p>
+        <div className="ratingAndPrice">
           <p>
             Preço: <span>R$ {product.price}</span>
           </p>
+          <div>
+            <Star>
+              {[...Array(+product.stars)].map((star, index) => {
+                return (
+                  <label key={index}>
+                    <FaStar color="#FFC125" />
+                  </label>
+                );
+              })}
+              {[...Array(5 - product.stars)].map((star, index) => {
+                return (
+                  <label key={index}>
+                    <FaStar color="#E4E5E9" />
+                  </label>
+                );
+              })}
+            </Star>
+          </div>
         </div>
-        <p>
-          Comentário: <span>{product.comment}</span>
-        </p>
+        <div className="commentEdit">
+          <p>
+            Comentário: <span>{product.comment}</span>
+          </p>
+
+          {sameUser && (
+            <StyledButtons>
+              <button>
+                <FiEdit />
+              </button>
+              <button>
+                <FiTrash2 onClick={handleDelete} />
+              </button>
+            </StyledButtons>
+          )}
+        </div>
       </StyledContainer>
-      {sameUser && (
-        <StyledButtons>
-          <button>
-            <FiEdit />
-          </button>
-          <button>
-            <FiTrash2 onClick={handleDelete} />
-          </button>
-        </StyledButtons>
-      )}
     </StyledLi>
   );
-
 }
 
 export default ReviewsCard;

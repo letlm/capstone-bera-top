@@ -11,26 +11,31 @@ import ListReviews from "../../components/ListReviews";
 
 function Beer() {
   const { id } = useParams();
-  const { products, setProducts, addReview, editReview, deleteReview, productReviews } =
-    useContext(ApiContext);
+  const {
+    products,
+    setProducts,
+    addReview,
+    editReview,
+    deleteReview,
+    productReviews,
+  } = useContext(ApiContext);
 
   return (
     <>
       <Header bgColor={"#F3F3F3"} />
 
-
-            <BeerContainer>
-                {products.map((product) => {
-                    if (product.id == id) {
-                        return (
-                            <div key={product.id}>
-                                <BeerCard product={product} key={id} beerPage={"beerPage"} />
+      <BeerContainer>
+        {products.map((product) => {
+          if (product.id == id) {
+            return (
+              <div key={product.id}>
+                <BeerCard product={product} key={id} beerPage={"beerPage"} />
 
                 <ProductDescription>
                   Resumo: {product.description}
                 </ProductDescription>
-                <ListReviews productId={id}/>
-              </>
+                <ListReviews productId={id} />
+              </div>
             );
           }
         })}
@@ -38,7 +43,6 @@ function Beer() {
       <Footer />
     </>
   );
-
 }
 
 export default Beer;
