@@ -29,7 +29,7 @@ function Beer() {
                 <BeerCard product={product} key={id} beerPage={"beerPage"} />
 
                 <ProductDescription>
-                  Resumo: {product.description}
+                  Resumo: <div className="productDescription">{product.description}</div>
                 </ProductDescription>
                 <ul>
                   {product.reviews.map((prod) => {

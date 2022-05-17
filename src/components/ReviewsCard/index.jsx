@@ -1,40 +1,54 @@
-import { StyledButtons, StyledContainer, StyledLi } from "./styles";
+import { StyledButtons, StyledContainer, StyledLi, Star } from "./styles";
 import { FiEdit } from "react-icons/fi";
 import { FiTrash2 } from "react-icons/fi";
 import { useContext } from "react";
 import { ApiContext } from "../../providers/ApiProvider";
+import { FaStar } from "react-icons/fa";
 
 function ReviewsCard({ product, sameUser = false, idReview, token }) {
-  const { deleteReview } = useContext(ApiContext);
-
-  return (
-    <StyledLi>
-      {console.log(product)}
-      <StyledContainer>
-        <div>
-          <p>
-            Nota: <span>{product.stars}</span>
-          </p>
-          <p>
-            Preço: <span>R$ {product.price}</span>
-          </p>
-        </div>
-        <p>
-          Comentário: <span>{product.comment}</span>
-        </p>
-      </StyledContainer>
-      {sameUser && (
-        <StyledButtons>
-          <button>
-            <FiEdit />
-          </button>
-          <button>
-            <FiTrash2 onClick={() => deleteReview(token, idReview)} />
-          </button>
-        </StyledButtons>
-      )}
-    </StyledLi>
-  );
+    const { deleteReview } = useContext(ApiContext);
+    return (
+        <StyledLi>
+            <StyledContainer>
+                <div className="ratingAndPrice">
+                    <p>
+                        Preço: <span>R$ {product.price}</span>
+                    </p>
+                    <div>
+                        <Star>
+                            {[...Array(+product.stars)].map((star, index) => {
+                                return (
+                                    <label key={index}>
+                                        <FaStar color="#FFC125" />
+                                    </label>
+                                );
+                            })}
+                            {[...Array(5 - product.stars)].map((star, index) => {
+                                return (
+                                    <label key={index}>
+                                        <FaStar color="#E4E5E9" />
+                                    </label>
+                                );
+                            })}
+                        </Star>
+                    </div>
+                </div>
+                <p>
+                    Comentário: <span>{product.comment}</span>
+                </p>
+            </StyledContainer>
+            {sameUser && (
+                <StyledButtons>
+                    <button>
+                        <FiEdit />
+                    </button>
+                    <button>
+                        <FiTrash2 onClick={() => deleteReview(token, idReview)} />
+                    </button>
+                </StyledButtons>
+            )}
+        </StyledLi>
+    );
 }
 
 export default ReviewsCard;
