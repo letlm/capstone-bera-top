@@ -3,19 +3,16 @@ import Footer from "../../components/Footer";
 import ReviewsCard from "../../components/ReviewsCard";
 import { useParams } from "react-router-dom";
 import BeerCard from "../../components/BeerCard";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../../providers/ApiProvider";
 
 import { ProductDescription, BeerContainer, Container } from "./styles";
+import ListReviews from "../../components/ListReviews";
 
 function Beer() {
   const { id } = useParams();
-  const { products, setProducts, addReview, editReview, deleteReview } =
+  const { products, setProducts, addReview, editReview, deleteReview, productReviews } =
     useContext(ApiContext);
-
-  const userStorage = Number(localStorage.getItem("@BeraTop-User"));
-  const tokenStorage = JSON.parse(localStorage.getItem("@BeraTop-Token"));
-  console.log(tokenStorage);
 
   return (
     <>
@@ -31,20 +28,7 @@ function Beer() {
                 <ProductDescription>
                   Resumo: {product.description}
                 </ProductDescription>
-                <ul>
-                  {product.reviews.map((prod) => {
-                    const sameUser = prod.userId === userStorage;
-                    return (
-                      <ReviewsCard
-                        product={prod}
-                        key={prod.id}
-                        sameUser={sameUser}
-                        idReview={prod.id}
-                        token={tokenStorage}
-                      />
-                    );
-                  })}
-                </ul>
+                <ListReviews productId={id}/>
               </>
             );
           }

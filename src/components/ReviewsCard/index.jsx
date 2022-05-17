@@ -5,7 +5,13 @@ import { useContext } from "react";
 import { ApiContext } from "../../providers/ApiProvider";
 
 function ReviewsCard({ product, sameUser = false, idReview, token }) {
-  const { deleteReview } = useContext(ApiContext);
+  const { deleteReview, reviews, setReviews } = useContext(ApiContext);
+
+  const handleDelete = () => {
+    deleteReview(token, idReview);
+    const deletedReview = reviews.filter((review) => review.id !== idReview);
+    setReviews(deletedReview);
+  };
 
   return (
     <StyledLi>
@@ -29,7 +35,7 @@ function ReviewsCard({ product, sameUser = false, idReview, token }) {
             <FiEdit />
           </button>
           <button>
-            <FiTrash2 onClick={() => deleteReview(token, idReview)} />
+            <FiTrash2 onClick={handleDelete} />
           </button>
         </StyledButtons>
       )}
