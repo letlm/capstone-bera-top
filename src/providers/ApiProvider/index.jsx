@@ -6,6 +6,7 @@ export const ApiContext = createContext([]);
 
 function ApiProvider({ children }) {
   const [products, setProducts] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     beraTopApi
@@ -15,7 +16,9 @@ function ApiProvider({ children }) {
   }, []);
 
   const productReviews = (productId) => {
-    beraTopApi.get(`reviews?productId=${productId}`);
+    beraTopApi
+      .get(`reviews?productId=${productId}`)
+      .then((res) => setReviews(res.data));
   };
 
   const register = (data) => {
@@ -38,6 +41,7 @@ function ApiProvider({ children }) {
         toast("🍺 Review adicionada com sucesso", {
           className: "toastify-color-progress-success",
         });
+        setReviews([...reviews, response.data])
       })
       .catch((err) => {
         toast("❌ Erro ao adicionar o comentário", {
@@ -62,12 +66,12 @@ function ApiProvider({ children }) {
         },
       })
       .then(() =>
-        toast("Comentário deletado com sucesso", {
+        toast("🍺 Comentário deletado com sucesso", {
           className: "toastify-color-progress-success",
         })
       )
       .catch(() =>
-        toast("Ops! Algo deu errado, tente novamente", {
+        toast("❌ Ops! Algo deu errado, tente novamente", {
           className: "toastify-color-progress-error",
         })
       );
@@ -83,7 +87,9 @@ function ApiProvider({ children }) {
         deleteReview,
         register,
         login,
-        productReviews
+        productReviews,
+        reviews,
+        setReviews,
       }}
     >
       {children}
