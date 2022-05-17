@@ -5,10 +5,9 @@ function StarRatingAvarage({ reviews }) {
     const avarageRating =
         reviews.length > 0
             ? Math.round(
-                  reviews &&
-                      reviews.reduce((previousValue, currentValue) => {
-                          return previousValue + Number(currentValue.stars);
-                      }, 0) / reviews.length
+                  reviews.reduce((previousValue, currentValue) => {
+                      return previousValue + Number(currentValue.stars);
+                  }, 0) / reviews.length
               )
             : 0;
 
