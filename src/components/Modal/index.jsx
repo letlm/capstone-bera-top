@@ -1,14 +1,22 @@
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { ApiContext } from "../../providers/ApiProvider";
 
 import Modal from "react-modal";
 
 import { CloseButton, Container, ContentModal } from "./styles";
 import { useAuth } from "../../providers/AuthProvider";
 import { useModal } from "../../providers/ModalProvider";
+import { useContext } from "react";
+import { useParams } from "react-router-dom";
 
 function ModalComponent({ isEdited = false }) {
+  const { addReview } = useContext(ApiContext);
+  const token = JSON.parse(localStorage.getItem("@BeraTop-Token"));
+  const userId = JSON.parse(localStorage.getItem("@BeraTop-User"));
+  const bierId = useParams();
+
   const { modalIsOpen, handleCloseModal } = useModal();
 
   const { authenticated } = useAuth();
@@ -25,7 +33,10 @@ function ModalComponent({ isEdited = false }) {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = (object) => {
+    object.userId = userId.toString();
+    object.productId = bierId.id;
     console.log(object);
+    addReview(token, object);
   };
 
   const onSubmitEdit = (object) => {
@@ -95,7 +106,7 @@ function ModalComponent({ isEdited = false }) {
               <div>
                 <section>
                   <label>Nota: </label>
-                  <select name="rating" {...register("rating")}>
+                  <select name="stars" {...register("stars")}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
