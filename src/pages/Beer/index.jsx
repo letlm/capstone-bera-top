@@ -18,12 +18,13 @@ function Beer() {
     <>
       <Header bgColor={"#F3F3F3"} />
 
-      <BeerContainer>
-        {products.map((product) => {
-          if (product.id == id) {
-            return (
-              <>
-                <BeerCard product={product} key={id} beerPage={"beerPage"} />
+
+            <BeerContainer>
+                {products.map((product) => {
+                    if (product.id == id) {
+                        return (
+                            <div key={product.id}>
+                                <BeerCard product={product} key={id} beerPage={"beerPage"} />
 
                 <ProductDescription>
                   Resumo: {product.description}
@@ -37,6 +38,7 @@ function Beer() {
       <Footer />
     </>
   );
+
 }
 
 export default Beer;

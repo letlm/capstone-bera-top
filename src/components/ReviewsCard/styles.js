@@ -9,35 +9,47 @@ export const StyledLi = styled.li`
     border-radius: 4px;
     max-width: 654px;
     border: 1px solid var(--yellow-1);
-    
-    p{
+
+    p {
         font-weight: bold;
         padding: 10px;
     }
 
-    span{
+    span {
         font-weight: 400;
     }
-`
+`;
 
 export const StyledContainer = styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
 
-    div{
+    padding: 0 5px 0 0;
+    .ratingAndPrice {
         display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
     }
-`
+    .commentEdit {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+`;
 
 export const StyledButtons = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: flex-end;
     margin-right: 10px;
     gap: 5px;
 
-    button{
+    button {
         color: var(--yellow-1);
         width: 25px;
         height: 25px;
@@ -48,4 +60,15 @@ export const StyledButtons = styled.div`
         border-radius: 4px;
         border: 1px solid var(--grey-2);
     }
-`
+`;
+
+export const Star = styled.div`
+    input[type="radio"] {
+        display: none;
+    }
+
+    .star {
+        cursor: pointer;
+        transition: color 200ms;
+    }
+`;

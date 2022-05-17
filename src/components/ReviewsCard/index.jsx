@@ -1,10 +1,12 @@
-import { StyledButtons, StyledContainer, StyledLi } from "./styles";
+import { StyledButtons, StyledContainer, StyledLi, Star } from "./styles";
 import { FiEdit } from "react-icons/fi";
 import { FiTrash2 } from "react-icons/fi";
 import { useContext } from "react";
 import { ApiContext } from "../../providers/ApiProvider";
+import { FaStar } from "react-icons/fa";
 
 function ReviewsCard({ product, sameUser = false, idReview, token }) {
+
   const { deleteReview, reviews, setReviews } = useContext(ApiContext);
 
   const handleDelete = () => {
@@ -41,6 +43,7 @@ function ReviewsCard({ product, sameUser = false, idReview, token }) {
       )}
     </StyledLi>
   );
+
 }
 
 export default ReviewsCard;

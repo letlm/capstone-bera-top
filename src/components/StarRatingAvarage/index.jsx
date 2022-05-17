@@ -8,6 +8,7 @@ function StarRatingAvarage({ reviews }) {
     }, 0)
   );
 
+
   return (
     <Star>
       {[...Array(avarageRating)].map((star, index) => {
