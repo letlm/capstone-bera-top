@@ -14,6 +14,10 @@ function ApiProvider({ children }) {
       .catch((err) => console.log(err));
   }, []);
 
+  const productReviews = (productId) => {
+    beraTopApi.get(`reviews?productId=${productId}`);
+  };
+
   const register = (data) => {
     beraTopApi.post("signup", data);
   };
@@ -79,6 +83,7 @@ function ApiProvider({ children }) {
         deleteReview,
         register,
         login,
+        productReviews
       }}
     >
       {children}
