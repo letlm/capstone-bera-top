@@ -8,15 +8,14 @@ export const BeerContainer = styled.div`
     margin: auto;
 `;
 
-export const ProductDescription = styled.p`
+export const ProductDescription = styled.div`
     padding: 10px 10px;
     margin: 4px 10px;
     background-color: var(--grey-0);
     border-radius: 4px;
     max-width: 600px;
     align-self: center;
-
-    .productDescription {
+    p {
         font-size: 13px;
         letter-spacing: 0.7px;
     }

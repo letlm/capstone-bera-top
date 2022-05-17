@@ -24,8 +24,16 @@ export const StyledContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+
     padding: 0 5px 0 0;
     .ratingAndPrice {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+    .commentEdit {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -35,7 +43,7 @@ export const StyledContainer = styled.div`
 
 export const StyledButtons = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: flex-end;
     margin-right: 10px;

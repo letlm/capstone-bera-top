@@ -15,38 +15,42 @@ function ReviewsCard({ product, sameUser = false, idReview, token }) {
                         Preço: <span>R$ {product.price}</span>
                     </p>
                     <div>
-                        <Star>
-                            {[...Array(+product.stars)].map((star, index) => {
-                                return (
-                                    <label key={index}>
-                                        <FaStar color="#FFC125" />
-                                    </label>
-                                );
-                            })}
-                            {[...Array(5 - product.stars)].map((star, index) => {
-                                return (
-                                    <label key={index}>
-                                        <FaStar color="#E4E5E9" />
-                                    </label>
-                                );
-                            })}
-                        </Star>
+                        <div>
+                            <Star>
+                                {[...Array(+product.stars)].map((star, index) => {
+                                    return (
+                                        <label key={index}>
+                                            <FaStar color="#FFC125" />
+                                        </label>
+                                    );
+                                })}
+                                {[...Array(5 - product.stars)].map((star, index) => {
+                                    return (
+                                        <label key={index}>
+                                            <FaStar color="#E4E5E9" />
+                                        </label>
+                                    );
+                                })}
+                            </Star>
+                        </div>
                     </div>
                 </div>
-                <p>
-                    Comentário: <span>{product.comment}</span>
-                </p>
+                <div className="commentEdit">
+                    <p>
+                        Comentário: <span>{product.comment}</span>
+                    </p>
+                    {sameUser && (
+                        <StyledButtons>
+                            <button>
+                                <FiEdit />
+                            </button>
+                            <button>
+                                <FiTrash2 onClick={() => deleteReview(token, idReview)} />
+                            </button>
+                        </StyledButtons>
+                    )}
+                </div>
             </StyledContainer>
-            {sameUser && (
-                <StyledButtons>
-                    <button>
-                        <FiEdit />
-                    </button>
-                    <button>
-                        <FiTrash2 onClick={() => deleteReview(token, idReview)} />
-                    </button>
-                </StyledButtons>
-            )}
         </StyledLi>
     );
 }
