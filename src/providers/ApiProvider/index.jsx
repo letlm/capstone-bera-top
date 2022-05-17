@@ -14,6 +14,10 @@ function ApiProvider({ children }) {
       .catch((err) => console.log(err));
   }, []);
 
+  const productReviews = (productId) => {
+    beraTopApi.get(`reviews?productId=${productId}`);
+  };
+
   const register = (data) => {
     beraTopApi.post("signup", data);
   };
@@ -25,7 +29,7 @@ function ApiProvider({ children }) {
   const addReview = (token, data) => {
     beraTopApi.post("reviews", data, {
       headers: {
-        "Authorization": `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
   };
@@ -33,23 +37,28 @@ function ApiProvider({ children }) {
   const editReview = (idReview, token, data) => {
     beraTopApi.patch(`reviews/${idReview}`, data, {
       headers: {
-        "Authorization": `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
   };
 
   const deleteReview = (token, idReview) => {
-    beraTopApi.delete(`reviews/${idReview}`, {
-      headers: {
-        "Authorization": `Bearer ${token}`,
-      },
-    })
-    .then(() => toast("Comentário deletado com sucesso", {
-      className: "toastify-color-progress-success",
-    }))
-    .catch(() => toast("Ops! Algo deu errado, tente novamente", {
-      className: "toastify-color-progress-error",
-    }))
+    beraTopApi
+      .delete(`reviews/${idReview}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(() =>
+        toast("Comentário deletado com sucesso", {
+          className: "toastify-color-progress-success",
+        })
+      )
+      .catch(() =>
+        toast("Ops! Algo deu errado, tente novamente", {
+          className: "toastify-color-progress-error",
+        })
+      );
   };
 
   return (
@@ -62,6 +71,7 @@ function ApiProvider({ children }) {
         deleteReview,
         register,
         login,
+        productReviews
       }}
     >
       {children}
