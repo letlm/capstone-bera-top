@@ -60,19 +60,17 @@ function About() {
   ];
 
   return (
-    // <Container>
     <>
       <Header bgColor={"#c4c4c4"}></Header>
       <Container>
-        <div>
-          <div>
-            <TitlePage>
+          <div className="part-one">
+            <TitlePage className="item-one">
               <p>Sobre a</p>
               <p>
                 BeraTop <img src={BeerImage} alt="Logo da BeraTop"></img>
               </p>
             </TitlePage>
-            <ParagraphOne>
+            <ParagraphOne className="item-two">
               <p>
                 Sua necessidade: Ter um feedback sobre diversas marcas,
                 tamanhos, teores e modelos de cervejas.
@@ -80,7 +78,7 @@ function About() {
               <img src={Feedback} alt="feedback do cliente"></img>
             </ParagraphOne>
 
-            <ParagraphTwo>
+            <ParagraphTwo className="item-three">
               <img src={Proposito} alt="proposito"></img>
               <p>
                 Nosso propósito: Te ajudar a poupar seu precioso tempo ao
@@ -88,23 +86,23 @@ function About() {
               </p>
             </ParagraphTwo>
           </div>
-        </div>
+        
+          <div className="part-two" >
+            <WhoDoes>
+              <p>Quem faz a</p>
+              <p>
+                BeraTop <img src={BeerImage} alt="Logo da BeraTop"></img>{" "}
+              </p>
+              <p>acontecer...</p>
+            </WhoDoes>
 
-        <div className="container" >
-          <WhoDoes>
-            <p>Quem faz a</p>
-            <p>
-              BeraTop <img src={BeerImage} alt="Logo da BeraTop"></img>{" "}
-            </p>
-          </WhoDoes>
-
-          <InfoDevs position="left" dev1={devs[0]} dev2={devs[1]}></InfoDevs>
-
-          <InfoDevs position="right" dev1={devs[2]} dev2={devs[3]}></InfoDevs>
-
-          <InfoDevs position="left" dev1={devs[5]} dev2={devs[4]}></InfoDevs>
-        </div>
-        {/* </div> */}
+            <div className="container-info-devs">
+              <InfoDevs position="left" dev1={devs[0]} dev2={devs[1]}></InfoDevs>
+              <InfoDevs position="right" dev1={devs[2]} dev2={devs[3]}></InfoDevs>
+              <InfoDevs position="left" dev1={devs[5]} dev2={devs[4]}></InfoDevs>
+            </div>
+          </div>
+        
       </Container>
       <Footer></Footer>
     </>
