@@ -7,6 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   height: 43vh;
   background-color: var(--white);
+
   @media (min-width: 320px) {
     width: 90vw;
   }
@@ -80,16 +81,19 @@ export const Container = styled.div`
   textarea {
     height: 17vh;
   }
+
   @media (min-width: 320px) {
     textarea {
       width: 80vw;
     }
   }
+
   @media (min-width: 768px) {
     textarea {
       width: 45vw;
     }
   }
+
   @media (min-width: 1024px) {
     textarea {
       width: 30vw;
@@ -111,6 +115,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
   }
+
   @media (min-width: 320px) {
     div {
       gap: 10px;
@@ -128,6 +133,7 @@ export const Container = styled.div`
       gap: 30px;
     }
   }
+
   @media (min-width: 1400px) {
     div {
       gap: 70px;
@@ -163,6 +169,7 @@ export const ContentModal = styled.div`
     text-align: center;
     font-size: 1.1rem;
   }
+
   @media (min-width: 768px) {
     width: 60vw;
   }
@@ -176,6 +183,7 @@ export const ContentModal = styled.div`
     padding: 30px;
   }
 `;
+
 export const CloseButton = styled.div`
   display: flex;
   justify-content: center;

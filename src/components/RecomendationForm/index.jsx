@@ -92,7 +92,7 @@ function RecomendationForm() {
         {errors.email && <span>{errors.email.message}</span>}
         <button>
           {!removeLoading ? (
-            <div class="loader">
+            <div className="loader">
               <span className="hour"></span>
               <span className="min"></span>
               <span className="circel"></span>

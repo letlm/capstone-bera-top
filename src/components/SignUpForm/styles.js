@@ -31,8 +31,10 @@ export const Form = styled.div`
     position: relative;
     top: 5%;
   }
+
   div {
     text-align: center;
+
     h1 {
       margin-top: 12px;
       color: var(--yellow-1);
@@ -41,6 +43,7 @@ export const Form = styled.div`
       font-size: 25px;
     }
   }
+
   form {
     width: 90%;
     margin: 0 auto;
@@ -48,10 +51,12 @@ export const Form = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     height: 90%;
+
     div {
       display: flex;
       flex-direction: column;
       text-align: left;
+
       label {
         color: var(--black);
         font-weight: 600;
@@ -59,6 +64,7 @@ export const Form = styled.div`
         margin-left: 5px;
         margin-bottom: 1px;
       }
+
       input {
         background: var(--white);
         color: var(--black);
@@ -70,10 +76,12 @@ export const Form = styled.div`
         ::placeholder {
           color: var(--grey-1);
         }
+
         @media (min-width: 820px) {
           height: 36px;
         }
       }
+
       .inputError {
         border: 1px solid var(--red);
         ::placeholder {
@@ -107,11 +115,13 @@ export const Form = styled.div`
         font-size: 10px;
         margin-left: 5px;
         margin-top: 2px;
+
         @media (min-width: 820px) {
           font-size: 11px;
         }
       }
     }
+
     button {
       font-size: 15px;
       font-weight: 500;
@@ -125,16 +135,19 @@ export const Form = styled.div`
         border: 1px solid var(--yellow-0);
       }
     }
+
     .termsSection {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-items: center;
       margin-top: 5px;
+
       label {
         font-size: 11px;
         line-height: 10px;
       }
+
       button {
         font-size: 11px;
         color: var(--yellow-1);
@@ -143,11 +156,13 @@ export const Form = styled.div`
         height: 3px;
       }
     }
+
     .loginSection {
       display: flex;
       flex-direction: row;
       align-items: center;
       margin: 0 auto -20px auto;
+
       button {
         margin-left: 5px;
         background: none;
