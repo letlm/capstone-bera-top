@@ -1,5 +1,6 @@
 import styled from "styled-components";
-export const StyledContainer = styled.div`
+
+const StyledContainer = styled.div`
   width: 90%;
   max-width: 400px;
   display: flex;
@@ -36,3 +37,4 @@ export const StyledContainer = styled.div`
     gap: 10%;
   }
 `;
+export default StyledContainer;

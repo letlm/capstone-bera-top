@@ -1,5 +1,5 @@
 import { FaStar } from "react-icons/fa";
-import { Star } from "./styles";
+import Star from "./styles";
 
 function StarRatingAvarage({ reviews }) {
   const avarageRating = Math.round(
@@ -7,7 +7,6 @@ function StarRatingAvarage({ reviews }) {
       return (previousValue + Number(currentValue.stars)) / reviews.length;
     }, 0)
   );
-
 
   return (
     <Star>

@@ -33,6 +33,7 @@ export const StyledContainer = styled.div`
     align-items: center;
     height: 100%;
   }
+
   .commentEdit {
     display: flex;
     flex-direction: row;

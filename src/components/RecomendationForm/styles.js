@@ -78,9 +78,6 @@ export const Form = styled.form`
   }
 
   .loader {
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
     width: 35px;
     height: 35px;
     border: 4px solid var(--yellow-2);
@@ -135,6 +132,7 @@ export const Form = styled.form`
       color: var(--red);
     }
   }
+
   span {
     color: var(--red);
     margin-top: -10px;

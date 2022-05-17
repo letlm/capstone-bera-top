@@ -30,19 +30,23 @@ export const Form = styled.div`
   @media (min-width: 320px) {
     width: 300px;
   }
+
   div {
     text-align: center;
+
     h1 {
       margin-top: 45px;
       color: var(--yellow-1);
       font-weight: 700;
       line-height: 27px;
       font-size: 25px;
+
       @media (min-width: 768px) {
         font-size: 38px;
       }
     }
   }
+
   form {
     width: 90%;
     margin: 0 auto;
@@ -50,20 +54,24 @@ export const Form = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     height: 90%;
+
     div {
       display: flex;
       flex-direction: column;
       text-align: left;
+
       label {
         color: var(--black);
         font-weight: 600;
         font-size: 13px;
         margin-left: 5px;
         margin-bottom: 2px;
+
         @media (min-width: 768px) {
           font-size: 16px;
         }
       }
+
       input {
         background: var(--white);
         color: var(--black);
@@ -75,10 +83,12 @@ export const Form = styled.div`
         ::placeholder {
           color: var(--grey-1);
         }
+
         @media (min-width: 768px) {
           height: 40px;
         }
       }
+
       .inputError {
         border: 1px solid var(--red);
         ::placeholder {
@@ -105,6 +115,7 @@ export const Form = styled.div`
         margin-top: 3px;
       }
     }
+
     button {
       font-size: 15px;
       font-weight: 500;
@@ -119,11 +130,13 @@ export const Form = styled.div`
       }
     }
   }
+
   .signUpSection {
     p {
       margin-bottom: 45px;
       font-size: 12px;
     }
+
     button {
       width: 90%;
       height: 50px;

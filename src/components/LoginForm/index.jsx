@@ -42,6 +42,7 @@ function FormLogin() {
       });
     });
     const { user, accessToken } = response.data;
+
     localStorage.clear();
     localStorage.setItem("@BeraTop-Token", JSON.stringify(accessToken));
     localStorage.setItem("@BeraTop-User", JSON.stringify(user.id));

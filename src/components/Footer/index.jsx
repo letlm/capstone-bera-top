@@ -1,12 +1,8 @@
 import FooterStyled from "./styles.js";
 import DoubleBeer from "../../assets/DoubleBeer.svg";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Footer() {
-  const history = useHistory();
-  const handleNavigation = (path) => {
-    return history.push(path);
-  };
   const currentURL = window.location.href;
   return (
     <FooterStyled>
