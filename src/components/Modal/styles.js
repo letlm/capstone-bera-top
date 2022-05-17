@@ -5,8 +5,8 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  height: 45vh;
-  background-color: #ffff;
+  height: 43vh;
+  background-color: var(--white);
   @media (min-width: 320px) {
     width: 90vw;
   }
@@ -49,7 +49,8 @@ export const Container = styled.div`
   }
 
   button:hover {
-    filter: opacity(0.9);
+    background: var(--yellow-0);
+    border: 1px solid var(--yellow-0);
   }
 
   input,
@@ -64,6 +65,10 @@ export const Container = styled.div`
     font-family: "Nunito";
     font-weight: bolder;
     margin-bottom: 5px;
+  }
+
+  select {
+    padding: 10px;
   }
 
   select,
@@ -135,14 +140,14 @@ export const ContentModal = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  background-color: #ffff;
+  background-color: var(--white);
   padding: 25px;
   align-items: center;
   width: 90vw;
 
   a {
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 8px 20px;
     background-color: var(--yellow-1);
     border-radius: 4px;
     color: black;
@@ -156,7 +161,7 @@ export const ContentModal = styled.div`
   h3 {
     margin-bottom: 15px;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   @media (min-width: 768px) {
     width: 60vw;
@@ -176,14 +181,11 @@ export const CloseButton = styled.div`
   justify-content: center;
   align-items: center;
   padding: 1px 5px;
-
-  border: 2px solid black;
   border-radius: 4px;
   font-weight: bolder;
-
+  font-size: 20px;
   position: absolute;
   top: 0;
   right: 0;
-
   cursor: pointer;
 `;
