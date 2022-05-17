@@ -33,10 +33,11 @@ function ModalComponent({ isEdited = false }) {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = (object) => {
-    object.userId = userId.toString();
-    object.productId = bierId.id;
+    object.userId = userId;
+    object.productId = Number(bierId.id);
     console.log(object);
     addReview(token, object);
+    handleCloseModal(true);
   };
 
   const onSubmitEdit = (object) => {
