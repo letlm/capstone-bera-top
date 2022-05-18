@@ -19,7 +19,7 @@ function ReviewsCard({ product, sameUser = false, idReview, token }) {
       <StyledContainer>
         <div className="ratingAndPrice">
           <p>
-            Preço: <span>R$ {product.price}</span>
+            Preço: <span>R$ {(+product.price).toFixed(2)}</span>
           </p>
           <div>
             <Star>

@@ -118,13 +118,14 @@ export const Form = styled.div`
 
     button {
       font-size: 15px;
-      font-weight: 500;
+      font-weight: bold;
       color: var(--white);
       background: var(--yellow-1);
       height: 37px;
       border: 1px solid var(--yellow-1);
       border-radius: 4px;
       :hover {
+        color: var(--grey-1);
         background: var(--yellow-0);
         border: 1px solid var(--yellow-0);
       }
