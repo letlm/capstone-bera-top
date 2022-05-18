@@ -73,6 +73,7 @@ export const Form = styled.div`
         padding: 0 12px;
         border-radius: 3px;
         height: 33px;
+
         ::placeholder {
           color: var(--grey-1);
         }
@@ -84,6 +85,7 @@ export const Form = styled.div`
 
       .inputError {
         border: 1px solid var(--red);
+
         ::placeholder {
           color: var(--red);
         }
@@ -130,6 +132,7 @@ export const Form = styled.div`
       height: 35px;
       border: 1px solid var(--yellow-1);
       border-radius: 4px;
+
       :hover {
         color: var(--grey-1);
         background: var(--yellow-0);

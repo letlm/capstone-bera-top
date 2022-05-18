@@ -20,10 +20,12 @@ export default createGlobalStyle`
         --yellow-1: #FFC125;
         --yellow-0: #ffff7a;
     }
+
     body {
         background: var(--white);
         font-family: 'Nunito';
     }
+    
     button {
         cursor: pointer;
     }

@@ -6,7 +6,8 @@ const HeaderStyled = styled.div`
   justify-content: space-around;
   width: 100%;
   align-items: center;
-  background-color: ${(props) => (props.bgColor ? "#F3F3F3" : "#ffffff")};
+  background-color: ${(props) =>
+    props.bgColor ? "var(--grey-0)" : "var(--white)"};
   box-shadow: ${(props) => (props.bgColor ? "0 2px #C4C4C4" : "")};
 
   .logo {
@@ -36,6 +37,7 @@ const HeaderStyled = styled.div`
     border: 1px solid var(--yellow-1);
     font-weight: 800;
     line-height: 23px;
+
     :hover {
       background: var(--grey-1);
     }
