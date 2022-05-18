@@ -1,10 +1,12 @@
 import { createContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { beraTopApi } from "../../services";
 
 export const ApiContext = createContext([]);
 
 function ApiProvider({ children }) {
   const [products, setProducts] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     beraTopApi
@@ -13,10 +15,10 @@ function ApiProvider({ children }) {
       .catch((err) => console.log(err));
   }, []);
 
-  const beerReviews = (beerId) => {
-    beraTopApi.get(`products/${beerId}?_embed=reviews`)
-    .then((res) => res.data)
-    .catch((err) => console.log(err))
+  const productReviews = (productId) => {
+    beraTopApi
+      .get(`reviews?productId=${productId}`)
+      .then((res) => setReviews(res.data));
   };
 
   const register = (data) => {
@@ -27,24 +29,52 @@ function ApiProvider({ children }) {
     beraTopApi.post("login", data);
   };
 
-  const addReview = (idProduct, token, data) => {
-    beraTopApi.post(`products/${idProduct}/reviews`, data, {
+  const addReview = (token, data) => {
+    beraTopApi
+      .post("reviews", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        toast("🍺 Review adicionada com sucesso", {
+          className: "toastify-color-progress-success",
+        });
+        setReviews([...reviews, response.data])
+      })
+      .catch((err) => {
+        toast("❌ Erro ao adicionar o comentário", {
+          className: "toastify-color-progress-error",
+        });
+      });
+  };
+
+  const editReview = (idReview, token, data) => {
+    beraTopApi.patch(`reviews/${idReview}`, data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
   };
 
-  const editReview = (idProduct, idReview, token, data) => {
-    beraTopApi.patch(`products/${idProduct}/reviews/${idReview}`, data, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-  };
-
-  const deleteReview = (idProduct, idReview) => {
-    beraTopApi.delete(`products/${idProduct}/reviews/${idReview}`);
+  const deleteReview = (token, idReview) => {
+    beraTopApi
+      .delete(`reviews/${idReview}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(() =>
+        toast("🍺 Comentário deletado com sucesso", {
+          className: "toastify-color-progress-success",
+        })
+      )
+      .catch(() =>
+        toast("❌ Ops! Algo deu errado, tente novamente", {
+          className: "toastify-color-progress-error",
+        })
+      );
   };
 
   return (
@@ -57,7 +87,9 @@ function ApiProvider({ children }) {
         deleteReview,
         register,
         login,
-        beerReviews
+        productReviews,
+        reviews,
+        setReviews,
       }}
     >
       {children}

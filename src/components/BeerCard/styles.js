@@ -9,9 +9,11 @@ export const LiBeer = styled.li`
   flex-direction: ${(props) => (props.beerPage ? "row" : "column")};
   align-items: center;
   align-self: center;
+  background-color: var(--white);
   margin: ${(props) => (props.beerPage ? "10px 0" : "0 10px")};
   padding: ${(props) => (props.beerPage ? "10px" : "0")};
-  background-color: var(--white);
+  box-shadow: ${(props) =>
+    props.beerPage ? "" : "10px 9px 42px -20px rgba(0, 0, 0, 0.3)"};
 
   img {
     height: 150px;
@@ -29,10 +31,10 @@ export const LiBeer = styled.li`
     max-width: 150%;
     height: 20px;
     border-radius: 20px;
-    background-color: #ffc125;
+    background-color: var(--yellow-1);
     padding: 2px 6px;
     box-sizing: border-box;
-    border: 1px solid #ffc125;
+    border: 1px solid var(--yellow-1);
     font-weight: bold;
     font-size: 14px;
   }
@@ -58,19 +60,33 @@ export const LiBeer = styled.li`
   :hover {
     cursor: ${(props) => (props.beerPage ? "default" : "pointer")};
     box-shadow: ${(props) =>
-      props.beerPage ? "" : "10px 9px 42px -20px rgba(0, 0, 0, 0.55)"};
+      props.beerPage ? "" : "10px 9px 42px -20px rgba(0, 0, 0, 1)"};
+  }
+
+  @media (min-width: 630px) {
+    width: ${(props) => (props.beerPage ? "100vw;" : "36vw")};
   }
 
   @media (min-width: 700px) {
-    width: 90vw;
+    width: ${(props) => (props.beerPage ? "90vw" : "30vw")};
 
     button {
       height: 20px;
     }
+
     .beerContainer {
       flex-direction: row;
-      max-width: 600px;
+      max-width: ${(props) => (props.beerPage ? "600px;" : "100%")};
     }
+
+    .title {
+      max-width: ${(props) => (props.beerPage ? "150%" : "100%")};
+    }
+  }
+
+  @media (min-width: 1000px) {
+    width: ${(props) => (props.beerPage ? "90vw" : "260px")};
+    margin: ${(props) => (props.beerPage ? "10px 0" : "5px 5px")};
   }
 `;
 
@@ -92,7 +108,7 @@ export const InfosBeer = styled.div`
     text-overflow: ellipsis;
     white-space: nowrap;
     width: fit-content;
-    background-color: ${(props) => (props.beerPage ? "#FFC125" : "")};
+    background-color: ${(props) => (props.beerPage ? "var(--yellow-1)" : "")};
     border-radius: ${(props) => (props.beerPage ? "20px" : 0)};
     padding: ${(props) => (props.beerPage ? "2px 6px" : 0)};
   }

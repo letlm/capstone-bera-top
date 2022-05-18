@@ -1,18 +1,20 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Comments from "../../assets/Comments.png";
 import { InfosBeer, LiBeer } from "./styles";
+import StarRatingAvarage from "../StarRatingAvarage";
+import ModalComponent from "../Modal";
+import { useModal } from "../../providers/ModalProvider";
 
 function BeerCard({ product, beerPage }) {
-  const { name, initialPrice, category, alcohol, image, reviews, description } =
-    product;
+  const { handleOpenModal } = useModal();
+  const { name, initialPrice, category, alcohol, image, reviews } = product;
 
   const averagePrice = () => {
     const sum =
       reviews &&
       reviews.reduce((previousValue, currentValue) => {
-        return previousValue + currentValue.price;
+        return previousValue + Number(currentValue.price);
       }, initialPrice);
-
     const average = sum / (reviews.length + 1);
 
     return reviews
@@ -41,7 +43,7 @@ function BeerCard({ product, beerPage }) {
 
       <div className="beerContainer">
         <section>
-          <span>Notas</span>
+          <StarRatingAvarage reviews={reviews} />
           <span className="title">{name}</span>
           <InfosBeer beerPage={beerPage}>
             <div>
@@ -54,8 +56,11 @@ function BeerCard({ product, beerPage }) {
             </div>
             <span>Teor: {alcohol}</span>
           </InfosBeer>
+          <ModalComponent />
         </section>
-        {beerPage && <button>Escrever Avaliação</button>}
+        {beerPage && (
+          <button onClick={handleOpenModal}>Escrever Avaliação</button>
+        )}
       </div>
     </LiBeer>
   );

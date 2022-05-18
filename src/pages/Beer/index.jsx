@@ -3,15 +3,22 @@ import Footer from "../../components/Footer";
 import ReviewsCard from "../../components/ReviewsCard";
 import { useParams } from "react-router-dom";
 import BeerCard from "../../components/BeerCard";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../../providers/ApiProvider";
 
-import { ProductDescription, BeerContainer } from "./styles";
+import { ProductDescription, BeerContainer, Container } from "./styles";
+import ListReviews from "../../components/ListReviews";
 
 function Beer() {
   const { id } = useParams();
-  const { products, setProducts, addReview, editReview, deleteReview } =
-    useContext(ApiContext);
+  const {
+    products,
+    setProducts,
+    addReview,
+    editReview,
+    deleteReview,
+    productReviews,
+  } = useContext(ApiContext);
 
   return (
     <>
@@ -21,19 +28,18 @@ function Beer() {
         {products.map((product) => {
           if (product.id == id) {
             return (
-              <>
+              <div key={product.id}>
                 <BeerCard product={product} key={id} beerPage={"beerPage"} />
 
                 <ProductDescription>
                   Resumo: {product.description}
                 </ProductDescription>
-              </>
+                <ListReviews productId={id} />
+              </div>
             );
           }
-          <ReviewsCard product={product} userName={""} />;
         })}
       </BeerContainer>
-
       <Footer />
     </>
   );

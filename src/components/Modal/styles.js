@@ -5,8 +5,9 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  height: 45vh;
-  background-color: #ffff;
+  height: 43vh;
+  background-color: var(--white);
+
   @media (min-width: 320px) {
     width: 90vw;
   }
@@ -49,7 +50,8 @@ export const Container = styled.div`
   }
 
   button:hover {
-    filter: opacity(0.9);
+    background: var(--yellow-0);
+    border: 1px solid var(--yellow-0);
   }
 
   input,
@@ -66,6 +68,10 @@ export const Container = styled.div`
     margin-bottom: 5px;
   }
 
+  select {
+    padding: 10px;
+  }
+
   select,
   input {
     height: 2.2rem;
@@ -75,16 +81,19 @@ export const Container = styled.div`
   textarea {
     height: 17vh;
   }
+
   @media (min-width: 320px) {
     textarea {
       width: 80vw;
     }
   }
+
   @media (min-width: 768px) {
     textarea {
       width: 45vw;
     }
   }
+
   @media (min-width: 1024px) {
     textarea {
       width: 30vw;
@@ -106,6 +115,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
   }
+
   @media (min-width: 320px) {
     div {
       gap: 10px;
@@ -123,10 +133,54 @@ export const Container = styled.div`
       gap: 30px;
     }
   }
+
   @media (min-width: 1400px) {
     div {
       gap: 70px;
     }
+  }
+`;
+
+export const ContentModal = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--white);
+  padding: 25px;
+  align-items: center;
+  width: 90vw;
+
+  a {
+    text-decoration: none;
+    padding: 8px 20px;
+    background-color: var(--yellow-1);
+    border-radius: 4px;
+    color: black;
+    width: 15vw;
+    font-family: "Nunito";
+    font-weight: bolder;
+    text-align: center;
+    margin: 5px;
+  }
+
+  h3 {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+
+  @media (min-width: 768px) {
+    width: 60vw;
+  }
+
+  @media (min-width: 1024px) {
+    width: 40vw;
+  }
+
+  @media (min-width: 1400px) {
+    width: 35vw;
+    padding: 30px;
   }
 `;
 
@@ -135,14 +189,11 @@ export const CloseButton = styled.div`
   justify-content: center;
   align-items: center;
   padding: 1px 5px;
-
-  border: 2px solid black;
   border-radius: 4px;
   font-weight: bolder;
-
+  font-size: 20px;
   position: absolute;
   top: 0;
   right: 0;
-
   cursor: pointer;
 `;
