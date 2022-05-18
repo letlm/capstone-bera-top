@@ -35,7 +35,6 @@ function ModalComponent({ isEdited = false }) {
   const onSubmit = (object) => {
     object.userId = userId;
     object.productId = Number(bierId.id);
-    console.log(object);
     addReview(token, object);
     handleCloseModal(true);
   };
