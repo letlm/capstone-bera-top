@@ -18,6 +18,7 @@ export const Container = styled.div`
     @media(min-width: 768px){
         
         .part-one{
+            margin-top: 60px;
             width: 768px;
             
             display: grid;
