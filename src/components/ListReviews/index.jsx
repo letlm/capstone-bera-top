@@ -10,9 +10,7 @@ function ListReviews({ productId }) {
 
   useEffect(() => {
     productReviews(productId);
-  }, []);
-
-  console.log(reviews)
+  }, [productId, productReviews]);
 
   return (
     <ul>
