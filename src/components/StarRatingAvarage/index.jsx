@@ -4,7 +4,7 @@ import Star from "./styles";
 function StarRatingAvarage({ reviews }) {
   const avarageRating = Math.round(
     reviews.reduce((previousValue, currentValue) => {
-      return (previousValue + Number(currentValue.stars)) / reviews.length;
+      return previousValue + Number(currentValue.stars) / reviews.length;
     }, 0)
   );
 
