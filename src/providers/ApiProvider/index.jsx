@@ -13,7 +13,7 @@ function ApiProvider({ children }) {
       .get(`products?_embed=reviews`)
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [products]);
 
   const productReviews = (productId) => {
     beraTopApi
@@ -41,7 +41,7 @@ function ApiProvider({ children }) {
         toast("🍺 Review adicionada com sucesso", {
           className: "toastify-color-progress-success",
         });
-        setReviews([...reviews, response.data])
+        setReviews([...reviews, response.data]);
       })
       .catch((err) => {
         toast("❌ Erro ao adicionar o comentário", {
