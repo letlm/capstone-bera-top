@@ -34,6 +34,7 @@ const StyledContainer = styled.div`
     max-width: 280px;
     top: 2.5%;
     left: 42%;
+
     input {
       background: var(--white);
     }
