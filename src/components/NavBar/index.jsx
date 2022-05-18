@@ -7,9 +7,19 @@ function NavBar() {
   const { setSearch } = useContext(SearchContext);
   const { products } = useContext(ApiContext);
 
+  const getAveragePrice = (product) => {
+    const sum =
+      product.reviews &&
+      product.reviews.reduce((previousValue, currentValue) => {
+        return previousValue + Number(currentValue.price);
+      }, product.initialPrice);
+    const average = sum / (product.reviews.length + 1);
+    return average;
+  };
+
   const filterByPrice = (value) => {
     const sorted = [...products];
-    sorted.sort((a, b) => a.initialPrice - b.initialPrice);
+    sorted.sort((a, b) => getAveragePrice(a) - getAveragePrice(b));
     value === "menor" ? setSearch(sorted) : setSearch(sorted.reverse());
   };
 
