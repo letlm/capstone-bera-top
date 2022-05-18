@@ -7,7 +7,6 @@ function AuthProvider({ children }) {
 
   useEffect(() => {
     const isAuth = localStorage.getItem("@BeraTop-Token");
-    console.log(isAuth);
 
     isAuth ? setAuthenticated(true) : setAuthenticated(false);
   }, []);
