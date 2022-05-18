@@ -13,9 +13,8 @@ function BeerCard({ product, beerPage }) {
     const sum =
       reviews &&
       reviews.reduce((previousValue, currentValue) => {
-        return previousValue + currentValue.price;
+        return previousValue + Number(currentValue.price);
       }, initialPrice);
-
     const average = sum / (reviews.length + 1);
 
     return reviews
