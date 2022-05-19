@@ -26,6 +26,7 @@ export const LiBeer = styled.li`
     flex-direction: column;
     align-items: center;
     max-width: 100%;
+    min-width: ${(props) => (props.beerPage ? "270px" : "")};
   }
 
   button {
