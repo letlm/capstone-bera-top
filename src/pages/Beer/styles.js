@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BeerContainer = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 73vh;
+  min-height: calc((100vh) - (165px));
   max-width: 600px;
   margin: auto;
 `;

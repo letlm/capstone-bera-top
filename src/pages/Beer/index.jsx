@@ -8,12 +8,9 @@ import { ApiContext } from "../../providers/ApiProvider";
 import { ProductDescription, BeerContainer, Container } from "./styles";
 import ListReviews from "../../components/ListReviews";
 
-
 function Beer() {
   const { id } = useParams();
-  const {
-    products
-  } = useContext(ApiContext);
+  const { products } = useContext(ApiContext);
 
   return (
     <>
@@ -24,7 +21,7 @@ function Beer() {
           if (product.id == id) {
             return (
               <div key={product.id}>
-                <BeerCard product={product} key={id} beerPage={"beerPage"}/>
+                <BeerCard product={product} key={id} beerPage={"beerPage"} />
 
                 <ProductDescription>
                   Resumo: {product.description}
