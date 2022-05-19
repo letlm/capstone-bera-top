@@ -6,6 +6,13 @@ export const BeerContainer = styled.div`
   min-height: calc((100vh) - (165px));
   max-width: 600px;
 
+  h3 {
+    align-self: center;
+    color: var(--yellow-1);
+    font-weight: 900;
+    font-size: 20px;
+  }
+
   @media (min-width: 630px) {
     margin: auto;
   }

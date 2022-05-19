@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import BeerCard from "../../components/BeerCard";
 import { useContext } from "react";
 import { ApiContext } from "../../providers/ApiProvider";
-
 import { ProductDescription, BeerContainer } from "./styles";
 import ListReviews from "../../components/ListReviews";
 
@@ -15,22 +14,21 @@ function Beer() {
   return (
     <>
       <Header bgColor={"#F3F3F3"} />
-
       <BeerContainer>
-        {products.map((product) => {
-          if (product.id === Number(id)) {
-            return (
+        {products.map(
+          (product) =>
+            product.id === Number(id) && (
               <div key={product.id} className="pageContainer">
-                <BeerCard product={product} key={id} beerPage={"beerPage"} />
+                <BeerCard product={product} beerPage={"beerPage"} />
 
                 <ProductDescription>
                   Resumo: {product.description}
                 </ProductDescription>
+                {product.reviews.length > 0 && <h3>Avaliações</h3>}
                 <ListReviews productId={id} />
               </div>
-            );
-          }
-        })}
+            )
+        )}
       </BeerContainer>
       <Footer />
     </>

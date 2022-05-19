@@ -6,6 +6,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: calc((100vh) - (165px));
 
   .part-two {
     height: 550px;
@@ -151,6 +152,7 @@ export const ParagraphOne = styled.div`
       font-size: 35px;
       width: 300px;
       height: 180px;
+      line-height: 36px;
     }
 
     img {
@@ -206,6 +208,7 @@ export const ParagraphTwo = styled.div`
       font-size: 35px;
       width: 300px;
       height: 200px;
+      line-height: 36px;
     }
 
     img {
@@ -260,6 +263,7 @@ export const WhoDoes = styled.div`
   @media (min-width: 1024px) {
     width: 900px;
     justify-content: flex-start;
+    margin-top: 25px;
 
     p:nth-child(1),
     p:nth-child(3) {

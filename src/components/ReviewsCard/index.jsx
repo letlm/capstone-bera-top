@@ -64,15 +64,6 @@ function ReviewsCard({ product, sameUser = false, idReview, token }) {
             </StyledButtons>
           )}
         </div>
-        {/* {modalIsOpen && (
-          <ModalComponent
-            isEdited={true}
-            reviewId={reviewId}
-            comment={comment}
-            price={price}
-            stars={stars}
-          />
-        )} */}
       </StyledContainer>
     </StyledLi>
   );

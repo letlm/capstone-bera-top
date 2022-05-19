@@ -4,7 +4,7 @@ import BeerImage from "../../assets/BeerImage.png";
 import Feedback from "../../assets/Necessidade.png";
 import Proposito from "../../assets/Proposito.png";
 import InfoDevs from "../../components/InfoDevs";
-import devs from "../Devs";
+import Devs from "../Devs";
 
 function AboutComponent() {
   return (
@@ -43,9 +43,9 @@ function AboutComponent() {
         </WhoDoes>
 
         <div className="container-info-devs">
-          <InfoDevs position="left" dev1={devs[0]} dev2={devs[1]}></InfoDevs>
-          <InfoDevs position="right" dev1={devs[2]} dev2={devs[3]}></InfoDevs>
-          <InfoDevs position="left" dev1={devs[5]} dev2={devs[4]}></InfoDevs>
+          <InfoDevs position="left" dev1={Devs[0]} dev2={Devs[1]}></InfoDevs>
+          <InfoDevs position="right" dev1={Devs[2]} dev2={Devs[3]}></InfoDevs>
+          <InfoDevs position="left" dev1={Devs[5]} dev2={Devs[4]}></InfoDevs>
         </div>
       </div>
     </Container>
