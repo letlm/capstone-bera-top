@@ -27,7 +27,10 @@ function ReviewsCard({ product, sameUser = false, idReview, token }) {
       <StyledContainer>
         <div className="ratingAndPrice">
           <p>
-            Preço: <span>R$ {(+product.price).toFixed(2)}</span>
+            Preço:{" "}
+            <span>
+              R$ {(+product.price).toFixed(2).toString().replace(".", ",")}
+            </span>
           </p>
           <div>
             <Star>

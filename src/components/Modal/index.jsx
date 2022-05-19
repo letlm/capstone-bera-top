@@ -125,6 +125,7 @@ function ModalComponent({ isEdited = false, modal, edit = "add" }) {
                   <input
                     name="price"
                     type="number"
+                    step=".01"
                     {...register("price")}
                     min="0"
                   />
