@@ -22,14 +22,6 @@ function ApiProvider({ children }) {
       .then((res) => setReviews(res.data));
   };
 
-  const register = (data) => {
-    beraTopApi.post("signup", data);
-  };
-
-  const login = (data) => {
-    beraTopApi.post("login", data);
-  };
-
   const addReview = (token, data) => {
     beraTopApi
       .post("reviews", data, {
@@ -78,7 +70,8 @@ function ApiProvider({ children }) {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then(() =>
+      .then(
+        () => setChange(!change),
         toast("🍺 Comentário deletado com sucesso", {
           className: "toastify-color-progress-success",
         })
@@ -98,8 +91,6 @@ function ApiProvider({ children }) {
         addReview,
         editReview,
         deleteReview,
-        register,
-        login,
         productReviews,
         reviews,
         setReviews,
