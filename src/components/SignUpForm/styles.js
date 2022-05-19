@@ -72,7 +72,8 @@ export const Form = styled.div`
         border-radius: 4px;
         padding: 0 12px;
         border-radius: 3px;
-        height: 25px;
+        height: 33px;
+
         ::placeholder {
           color: var(--grey-1);
         }
@@ -84,6 +85,7 @@ export const Form = styled.div`
 
       .inputError {
         border: 1px solid var(--red);
+
         ::placeholder {
           color: var(--red);
         }
@@ -91,7 +93,7 @@ export const Form = styled.div`
 
       .hiddePass {
         position: absolute;
-        margin-top: 23px;
+        margin-top: 27px;
         margin-left: 230px;
         color: var(--grey-1);
         font-size: large;
@@ -124,13 +126,15 @@ export const Form = styled.div`
 
     button {
       font-size: 15px;
-      font-weight: 500;
-      color: var(--black);
+      font-weight: bold;
+      color: var(--white);
       background: var(--yellow-1);
-      height: 30px;
+      height: 35px;
       border: 1px solid var(--yellow-1);
       border-radius: 4px;
+
       :hover {
+        color: var(--grey-1);
         background: var(--yellow-0);
         border: 1px solid var(--yellow-0);
       }

@@ -159,6 +159,7 @@ export const TableOnTheRight = styled.div`
     left: 28px;
     height: 45px;
   }
+
   .barTable > img:nth-child(3) {
     position: relative;
     top: -95px;

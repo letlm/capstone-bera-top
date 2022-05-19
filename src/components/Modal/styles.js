@@ -26,7 +26,7 @@ export const Container = styled.div`
 
   .error {
     font-size: 0.8rem;
-    color: red;
+    color: var(--red);
   }
 
   form {

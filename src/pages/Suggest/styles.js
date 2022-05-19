@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+const Container = styled.div`
   min-width: 320px;
   width: 100%;
   height: 100vh;
@@ -8,3 +8,5 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
+
+export default Container;

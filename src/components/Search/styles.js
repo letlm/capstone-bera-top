@@ -8,13 +8,15 @@ const StyledContainer = styled.div`
   background: var(--grey-0);
   border-radius: 4px;
   position: absolute;
-  top: 12%;
+  top: 14%;
   gap: 5%;
   align-self: center;
+
   img {
     cursor: pointer;
     width: 30px;
   }
+
   input {
     margin-left: 10px;
     border-style: none;
@@ -22,15 +24,22 @@ const StyledContainer = styled.div`
     width: 80%;
     outline: none;
   }
+
+  @media (min-width: 768px) {
+    top: 12%;
+  }
+
   @media (min-width: 1100px) {
     background: var(--white);
     max-width: 280px;
     top: 2.5%;
     left: 42%;
+
     input {
       background: var(--white);
     }
   }
+
   @media (min-width: 1400px) {
     left: 37%;
     max-width: 30%;

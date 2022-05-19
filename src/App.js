@@ -3,7 +3,7 @@ import { ToastContainer } from "react-toastify";
 import GlobalStyle from "./styles/global";
 import Routes from "./routes";
 import Modal from "react-modal/lib/components/Modal";
-Modal.setAppElement("#root");   
+Modal.setAppElement("#root");
 
 function App() {
   return (

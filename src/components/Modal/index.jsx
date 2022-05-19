@@ -2,9 +2,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { ApiContext } from "../../providers/ApiProvider";
-
 import Modal from "react-modal";
-
 import { CloseButton, Container, ContentModal } from "./styles";
 import { useAuth } from "../../providers/AuthProvider";
 import { useModal } from "../../providers/ModalProvider";

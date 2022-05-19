@@ -7,6 +7,7 @@ export const ApiContext = createContext([]);
 function ApiProvider({ children }) {
   const [products, setProducts] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [change, setChange] = useState(false);
 
   useEffect(() => {
     beraTopApi
@@ -40,9 +41,10 @@ function ApiProvider({ children }) {
         toast("🍺 Review adicionada com sucesso", {
           className: "toastify-color-progress-success",
         });
-        setReviews([...reviews, response.data])
+        setReviews([...reviews, response.data]);
+        setChange(!change);
       })
-      .catch((err) => {
+      .catch(() => {
         toast("❌ Erro ao adicionar o comentário", {
           className: "toastify-color-progress-error",
         });

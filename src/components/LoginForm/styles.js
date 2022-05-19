@@ -80,6 +80,7 @@ export const Form = styled.div`
         padding: 0 12px;
         border-radius: 3px;
         height: 36px;
+
         ::placeholder {
           color: var(--grey-1);
         }
@@ -118,13 +119,15 @@ export const Form = styled.div`
 
     button {
       font-size: 15px;
-      font-weight: 500;
+      font-weight: bold;
       color: var(--white);
       background: var(--yellow-1);
       height: 37px;
       border: 1px solid var(--yellow-1);
       border-radius: 4px;
+
       :hover {
+        color: var(--grey-1);
         background: var(--yellow-0);
         border: 1px solid var(--yellow-0);
       }
@@ -147,6 +150,7 @@ export const Form = styled.div`
       background: var(--grey-1);
       border: 1px solid var(--yellow-1);
       border-radius: 3px;
+
       :hover {
         background: var(--grey-2);
       }

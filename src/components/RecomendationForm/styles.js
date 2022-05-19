@@ -128,6 +128,7 @@ export const Form = styled.form`
 
   .inputError {
     border: 1px solid var(--red);
+
     ::placeholder {
       color: var(--red);
     }
