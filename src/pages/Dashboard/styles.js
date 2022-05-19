@@ -44,6 +44,7 @@ export const Context = styled.ul`
     width: 620px;
     height: 500px;
     justify-content: space-evenly;
+    padding-bottom: 100px;
   }
 
   @media (min-width: 1000px) {
