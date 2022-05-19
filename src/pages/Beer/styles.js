@@ -5,7 +5,16 @@ export const BeerContainer = styled.div`
   flex-direction: column;
   min-height: calc((100vh) - (165px));
   max-width: 600px;
-  margin: auto;
+
+  @media (min-width: 630px) {
+    margin: auto;
+  }
+
+  .pageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const ProductDescription = styled.div`
