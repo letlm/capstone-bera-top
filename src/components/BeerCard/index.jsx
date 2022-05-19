@@ -3,10 +3,10 @@ import Comments from "../../assets/Comments.png";
 import { InfosBeer, LiBeer } from "./styles";
 import StarRatingAvarage from "../StarRatingAvarage";
 import ModalComponent from "../Modal";
-import { useModal } from "../../providers/ModalProvider";
+import {  useModal } from "../../providers/ModalProvider";
 
 function BeerCard({ product, beerPage }) {
-  const { handleOpenModal } = useModal();
+  const { handleOpenModal, modalIsOpen, handleCloseModal } = useModal();
   const { name, initialPrice, category, alcohol, image, reviews } = product;
 
   const averagePrice = () => {
@@ -56,7 +56,7 @@ function BeerCard({ product, beerPage }) {
             </div>
             <span>Teor: {alcohol}</span>
           </InfosBeer>
-          <ModalComponent />
+          <ModalComponent isEdited={false} modal={modalIsOpen} modalClose={handleCloseModal}/>
         </section>
         {beerPage && (
           <button onClick={handleOpenModal}>Escrever Avaliação</button>

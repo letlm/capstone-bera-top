@@ -1,6 +1,8 @@
 import { useContext, useEffect } from "react";
 import { ApiContext } from "../../providers/ApiProvider";
 import ReviewsCard from "../ReviewsCard";
+import { useModal } from "../../providers/ModalProvider";
+import ModalComponent from "../Modal";
 
 function ListReviews({ productId }) {
   const userStorage = Number(localStorage.getItem("@BeraTop-User"));
@@ -10,7 +12,9 @@ function ListReviews({ productId }) {
 
   useEffect(() => {
     productReviews(productId);
-  }, [productId, productReviews]);
+  }, []);
+
+  const { modalOpenEdit } = useModal();
 
   return (
     <ul>
@@ -26,6 +30,8 @@ function ListReviews({ productId }) {
           />
         );
       })}
+
+      <ModalComponent isEdited={true} modal={modalOpenEdit} edit="edit" />
     </ul>
   );
 }
