@@ -8,16 +8,19 @@ import Modal from "react-modal";
 import { CloseButton, Container, ContentModal } from "./styles";
 import { useAuth } from "../../providers/AuthProvider";
 import { useModal } from "../../providers/ModalProvider";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function ModalComponent({ isEdited = false }) {
-  const { addReview } = useContext(ApiContext);
+function ModalComponent({ isEdited = false, modal, edit = "add" }) {
+  const { addReview, editReview, deleteReview, reviews, setReviews } = useContext(ApiContext);
+  const { handleCloseModal, editBeer } = useModal();
+
+  
   const token = JSON.parse(localStorage.getItem("@BeraTop-Token"));
   const userId = JSON.parse(localStorage.getItem("@BeraTop-User"));
   const bierId = useParams();
-
-  const { modalIsOpen, handleCloseModal } = useModal();
+  
+  const [reviewId, setReviewId] = useState(0)
 
   const { authenticated } = useAuth();
 
@@ -25,26 +28,37 @@ function ModalComponent({ isEdited = false }) {
     comment: yup.string().required(" Campo obrigatório"),
     price: yup.string().required(" Campo obrigatório"),
   });
-
+  
   const {
     register,
+    setValue,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
+  useEffect(() => {
+    setValue("comment", editBeer.comment)
+    setValue("price", editBeer.price)
+    setValue("stars", editBeer.stars)
+  }, [editBeer, setValue])
+  
   const onSubmit = (object) => {
     object.userId = userId;
     object.productId = Number(bierId.id);
     addReview(token, object);
-    handleCloseModal(true);
+    handleCloseModal();
   };
 
   const onSubmitEdit = (object) => {
-    console.log("teste");
+    editReview(editBeer.id, token, object, editBeer.productId);
+    setReviewId(editBeer.id)
+    handleCloseModal("edit");
   };
 
-  const onSubmitDel = (id) => {
-    console.log("teste");
+  const onSubmitDel = () => {
+    deleteReview(token, reviewId)
+    const deletedReview = reviews.filter((review) => review.id !== reviewId);
+    setReviews(deletedReview);
   };
 
   const customStyles = {
@@ -65,11 +79,12 @@ function ModalComponent({ isEdited = false }) {
   };
 
   return (
+    
     <div>
       {!authenticated ? (
         <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={handleCloseModal}
+          isOpen={modal}
+          onRequestClose={() => handleCloseModal(edit)}
           style={customStyles}
         >
           <ContentModal>
@@ -86,12 +101,12 @@ function ModalComponent({ isEdited = false }) {
         </Modal>
       ) : (
         <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={handleCloseModal}
+          isOpen={modal}
+          onRequestClose={() => handleCloseModal(edit)}
           style={customStyles}
         >
           <Container>
-            <CloseButton onClick={handleCloseModal}> X </CloseButton>
+            <CloseButton onClick={() => handleCloseModal(edit)}> X </CloseButton>
             <form
               onSubmit={
                 isEdited ? handleSubmit(onSubmitEdit) : handleSubmit(onSubmit)
@@ -99,14 +114,23 @@ function ModalComponent({ isEdited = false }) {
             >
               <section>
                 <label>Comentário: </label>
-                <textarea name="comment" type="text" {...register("comment")} />
+                <textarea
+                  name="comment"
+                  type="text"
+                  {...register("comment")}
+                  //defaultValue={editBeer.comment
+                />
                 <span className="error">{errors.comment?.message}</span>
               </section>
 
               <div>
                 <section>
                   <label>Nota: </label>
-                  <select name="stars" {...register("stars")}>
+                  <select
+                    name="stars"
+                    {...register("stars")}
+                    //defaultValue={editBeer.stars}
+                  >
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -122,6 +146,7 @@ function ModalComponent({ isEdited = false }) {
                     type="number"
                     {...register("price")}
                     min="0"
+                    //defaultValue={editBeer.price}
                   />
                   <span className="error">{errors.price?.message}</span>
                 </section>
@@ -129,7 +154,7 @@ function ModalComponent({ isEdited = false }) {
               {isEdited ? (
                 <div>
                   {" "}
-                  <button onClick={(event) => onSubmitDel(event.id)}>
+                  <button onClick={onSubmitDel}>
                     Deletar
                   </button>{" "}
                   <button type="submit">Editar</button>

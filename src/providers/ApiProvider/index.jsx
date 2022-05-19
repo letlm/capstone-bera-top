@@ -12,7 +12,7 @@ function ApiProvider({ children }) {
     beraTopApi
       .get(`products?_embed=reviews`)
       .then((res) => setProducts(res.data))
-      .catch((err) => console.log(err));
+      .catch((err) => (err));
   }, []);
 
   const productReviews = (productId) => {
@@ -37,7 +37,6 @@ function ApiProvider({ children }) {
         },
       })
       .then((response) => {
-        console.log(response);
         toast("🍺 Review adicionada com sucesso", {
           className: "toastify-color-progress-success",
         });
@@ -50,11 +49,22 @@ function ApiProvider({ children }) {
       });
   };
 
-  const editReview = (idReview, token, data) => {
+  const editReview = (idReview, token, data, productId) => {
     beraTopApi.patch(`reviews/${idReview}`, data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
+    })
+    .then((response) => {
+      toast("🍺 Review editada com sucesso", {
+        className: "toastify-color-progress-success",
+      });
+      productReviews(productId)
+    })
+    .catch((err) => {
+      toast("❌ Erro ao editar o comentário", {
+        className: "toastify-color-progress-error",
+      });
     });
   };
 

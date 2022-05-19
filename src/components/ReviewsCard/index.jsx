@@ -4,9 +4,17 @@ import { FiTrash2 } from "react-icons/fi";
 import { useContext } from "react";
 import { ApiContext } from "../../providers/ApiProvider";
 import { FaStar } from "react-icons/fa";
+import { useModal } from "../../providers/ModalProvider";
 
 function ReviewsCard({ product, sameUser = false, idReview, token }) {
   const { deleteReview, reviews, setReviews } = useContext(ApiContext);
+  const { handleOpenModal, setEditBeer } = useModal();
+
+  const handleEdit = () => {
+    const findReview = reviews.filter((el) => el.id === idReview);
+    setEditBeer(findReview[0]);
+    handleOpenModal("edit");
+  };
 
   const handleDelete = () => {
     deleteReview(token, idReview);
@@ -47,7 +55,7 @@ function ReviewsCard({ product, sameUser = false, idReview, token }) {
 
           {sameUser && (
             <StyledButtons>
-              <button>
+              <button onClick={handleEdit}>
                 <FiEdit />
               </button>
               <button>
@@ -56,6 +64,15 @@ function ReviewsCard({ product, sameUser = false, idReview, token }) {
             </StyledButtons>
           )}
         </div>
+        {/* {modalIsOpen && (
+          <ModalComponent
+            isEdited={true}
+            reviewId={reviewId}
+            comment={comment}
+            price={price}
+            stars={stars}
+          />
+        )} */}
       </StyledContainer>
     </StyledLi>
   );

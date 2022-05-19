@@ -4,7 +4,6 @@ import RecomendationForm from "../../components/RecomendationForm";
 import { Container } from "./styles";
 
 function Suggest() {
-  console.log("teste");
   return (
     <Container>
       <Header bgColor={"#C4C4C4"} />
