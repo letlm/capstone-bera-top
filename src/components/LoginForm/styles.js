@@ -19,7 +19,7 @@ export const Form = styled.div`
   flex-direction: column;
   width: 90%;
   margin: 0 auto;
-  height: 60vh;
+  height: 70vh;
   position: relative;
   top: 10%;
   border-radius: 4px;
@@ -125,6 +125,7 @@ export const Form = styled.div`
       height: 45px;
       border: 1px solid var(--grey-3);
       border-radius: 4px;
+      
 
       :hover {
         color: var(--grey-3);
@@ -153,6 +154,7 @@ export const Form = styled.div`
 
       :hover {
         background: var(--grey-2);
+        border: 1px solid var(--grey-1);
       }
     }
   }
