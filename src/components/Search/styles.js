@@ -7,10 +7,10 @@ const StyledContainer = styled.div`
   height: 42px;
   background: var(--grey-0);
   border-radius: 4px;
-  position: absolute;
-  top: 14%;
   gap: 5%;
   align-self: center;
+  margin: 5px auto;
+  padding: 10px 0;
 
   img {
     cursor: pointer;
@@ -27,17 +27,6 @@ const StyledContainer = styled.div`
 
   @media (min-width: 768px) {
     top: 12%;
-  }
-
-  @media (min-width: 1100px) {
-    background: var(--white);
-    max-width: 280px;
-    top: 2.5%;
-    left: 42%;
-
-    input {
-      background: var(--white);
-    }
   }
 
   @media (min-width: 1400px) {

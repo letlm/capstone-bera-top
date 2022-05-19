@@ -1,24 +1,23 @@
 import styled from "styled-components";
 
 export const LiBeer = styled.li`
-  width: 100vw;
+  width: 95vw;
   max-width: 700px;
   height: fit-content;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
   flex-direction: ${(props) => (props.beerPage ? "row" : "column")};
   align-items: center;
   align-self: center;
   background-color: var(--white);
   margin: ${(props) => (props.beerPage ? "10px 0" : "0 10px")};
-  padding: ${(props) => (props.beerPage ? "10px" : "0")};
   box-shadow: ${(props) =>
     props.beerPage ? "" : "10px 9px 42px -20px rgba(0, 0, 0, 0.3)"};
   border-radius: 40px;
-  padding: 5px;
+  padding: ${(props) => (props.beerPage ? "" : "5px 15px")};
 
   img {
-    height: 150px;
+    height: ${(props) => (props.beerPage ? "125px" : "150px")};
   }
 
   section {
@@ -26,7 +25,6 @@ export const LiBeer = styled.li`
     flex-direction: column;
     align-items: center;
     max-width: 100%;
-    min-width: ${(props) => (props.beerPage ? "270px" : "")};
   }
 
   button {
@@ -46,10 +44,12 @@ export const LiBeer = styled.li`
     font-size: 15px;
     font-family: "Nunito";
     font-weight: bold;
-    max-width: ${(props) => (props.beerPage ? "150%" : "120%")};
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow-wrap: break-word;
+    text-align: center;
+    max-width: ${(props) => (props.beerPage ? "16ch" : "120%")};
+    text-overflow: ${(props) => (props.beerPage ? "break-word" : "ellipsis")};
+    white-space: ${(props) => (props.beerPage ? "pre-line" : "nowrap")};
   }
 
   .beerContainer {
@@ -57,7 +57,7 @@ export const LiBeer = styled.li`
     flex-direction: column;
     align-items: center;
     max-width: 70%;
-    margin: auto;
+    margin-left: -10px;
   }
 
   :hover {
@@ -68,10 +68,15 @@ export const LiBeer = styled.li`
 
   @media (min-width: 630px) {
     width: ${(props) => (props.beerPage ? "100vw;" : "36vw")};
+
+    section {
+      min-width: ${(props) => (props.beerPage ? "270px" : "")};
+    }
   }
 
   @media (min-width: 700px) {
     width: ${(props) => (props.beerPage ? "90vw" : "30vw")};
+    max-width: ${(props) => (props.beerPage ? "600px" : "")};
 
     button {
       height: 20px;
@@ -94,7 +99,7 @@ export const LiBeer = styled.li`
 `;
 
 export const InfosBeer = styled.div`
-  width: ${(props) => (props.beerPage ? "100px" : "221px")};
+  width: ${(props) => (props.beerPage ? "100%" : "221px")};
   height: 42px;
   justify-content: flex-end;
   display: flex;
@@ -130,7 +135,7 @@ export const InfosBeer = styled.div`
   }
 
   div {
-    width: 221px;
+    width: 100%;
     display: flex;
     justify-content: space-around;
   }

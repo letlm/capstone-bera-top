@@ -6,7 +6,7 @@ import Modal from "react-modal";
 import { CloseButton, Container, ContentModal } from "./styles";
 import { useAuth } from "../../providers/AuthProvider";
 import { useModal } from "../../providers/ModalProvider";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 function ModalComponent({ isEdited = false, modal, edit = "add" }) {
@@ -16,8 +16,6 @@ function ModalComponent({ isEdited = false, modal, edit = "add" }) {
   const token = JSON.parse(localStorage.getItem("@BeraTop-Token"));
   const userId = JSON.parse(localStorage.getItem("@BeraTop-User"));
   const bierId = useParams();
-
-  const [reviewId, setReviewId] = useState(0);
 
   const { authenticated } = useAuth();
 
@@ -48,7 +46,6 @@ function ModalComponent({ isEdited = false, modal, edit = "add" }) {
 
   const onSubmitEdit = (object) => {
     editReview(editBeer.id, token, object, editBeer.productId);
-    setReviewId(editBeer.id);
     handleCloseModal("edit");
   };
 

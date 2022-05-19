@@ -30,6 +30,7 @@ const FooterStyled = styled.div`
       flex-direction: column;
       align-items: center;
       margin-left: 5px;
+      text-align: center;
 
       a {
         color: var(--yellow-1);
