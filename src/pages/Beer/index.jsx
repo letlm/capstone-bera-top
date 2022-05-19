@@ -5,7 +5,7 @@ import BeerCard from "../../components/BeerCard";
 import { useContext } from "react";
 import { ApiContext } from "../../providers/ApiProvider";
 
-import { ProductDescription, BeerContainer, Container } from "./styles";
+import { ProductDescription, BeerContainer } from "./styles";
 import ListReviews from "../../components/ListReviews";
 
 function Beer() {
@@ -18,7 +18,7 @@ function Beer() {
 
       <BeerContainer>
         {products.map((product) => {
-          if (product.id == id) {
+          if (product.id === Number(id)) {
             return (
               <div key={product.id} className="pageContainer">
                 <BeerCard product={product} key={id} beerPage={"beerPage"} />
