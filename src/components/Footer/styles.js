@@ -6,6 +6,8 @@ const FooterStyled = styled.div`
   height: fit-content;
   align-items: center;
   background-color: var(--grey-0);
+  position: absolute;
+  bottom: 0;
 
   .footer {
     display: flex;

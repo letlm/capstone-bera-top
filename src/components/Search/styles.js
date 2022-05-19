@@ -9,7 +9,7 @@ const StyledContainer = styled.div`
   border-radius: 4px;
   gap: 5%;
   align-self: center;
-  margin: 5px auto;
+  margin: 15px auto;
   padding: 10px 0;
 
   img {
@@ -23,10 +23,6 @@ const StyledContainer = styled.div`
     background: var(--grey-0);
     width: 80%;
     outline: none;
-  }
-
-  @media (min-width: 768px) {
-    top: 12%;
   }
 
   @media (min-width: 1400px) {

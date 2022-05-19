@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 `;
 
@@ -37,7 +37,6 @@ export const Context = styled.ul`
   }
 
   @media (min-width: 630px) {
-    margin-top: 5px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -47,7 +46,7 @@ export const Context = styled.ul`
   }
 
   @media (min-width: 1000px) {
-    margin-top: 0px;
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
