@@ -13,6 +13,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
+  border: 2px solid var(--black);
   margin-top: 50px;
   background: var(--white);
   width: 90%;
@@ -38,7 +39,7 @@ export const Text = styled.div`
   }
 
   p {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   a {
@@ -47,7 +48,7 @@ export const Text = styled.div`
 
   button {
     width: 75px;
-    height: 20px;
+    height: 25px;
     background: var(--yellow-1);
     border: 1px solid var(--yellow-1);
     border-radius: 4px;

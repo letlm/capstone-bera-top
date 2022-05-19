@@ -37,6 +37,8 @@ export const Container = styled.div`
     height: 100%;
     width: 100%;
     gap: 13px;
+    border-radius: 4px;
+    border: 2px solid var(--grey-3);
   }
 
   button {
@@ -47,11 +49,14 @@ export const Container = styled.div`
     font-family: "Nunito";
     font-weight: bolder;
     font-size: 1rem;
+    border: 1px solid var(--grey-3);
+    color: var(--grey-3);
   }
 
   button:hover {
-    background: var(--yellow-0);
+    color: var(--grey-3);
     border: 1px solid var(--yellow-0);
+    background-color: var(--yellow-0);
   }
 
   input,
@@ -150,24 +155,34 @@ export const ContentModal = styled.div`
   padding: 25px;
   align-items: center;
   width: 90vw;
+  border-radius: 4px;
+  border: 2px solid var(--grey-3);
 
   a {
     text-decoration: none;
     padding: 8px 20px;
     background-color: var(--yellow-1);
     border-radius: 4px;
-    color: black;
+    color: var(--grey-3);
     width: 15vw;
     font-family: "Nunito";
     font-weight: bolder;
     text-align: center;
     margin: 5px;
+    border: 1px solid var(--grey-3);
+  }
+
+  a:hover {
+    color: var(--grey-3);
+    border: 1px solid var(--yellow-0);
+    background-color: var(--yellow-0);
   }
 
   h3 {
     margin-bottom: 15px;
     text-align: center;
     font-size: 1.1rem;
+    color: var(--grey-3);
   }
 
   @media (min-width: 768px) {
@@ -196,4 +211,5 @@ export const CloseButton = styled.div`
   top: 0;
   right: 0;
   cursor: pointer;
+  color: var(--grey-3);
 `;

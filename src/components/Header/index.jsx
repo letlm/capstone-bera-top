@@ -16,7 +16,7 @@ function Header({ bgColor }) {
     handleNavigation("/");
     setAuthenticated(false);
     localStorage.clear();
-    toast("🍺 Usuário deslogado", {
+    toast("🍺 Usuário deslogado!", {
       className: "toastify-color-progress-success",
     });
   };

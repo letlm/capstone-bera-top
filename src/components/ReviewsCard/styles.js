@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledLi = styled.li`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: 10px 20px;
   font-size: 14px;
@@ -17,6 +18,11 @@ export const StyledLi = styled.li`
 
   span {
     font-weight: 400;
+  }
+
+  .commentSpan {
+    font-weight: 400;
+    word-break: break-all;
   }
 `;
 

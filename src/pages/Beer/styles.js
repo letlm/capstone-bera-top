@@ -37,3 +37,8 @@ export const ProductDescription = styled.div`
     letter-spacing: 0.7px;
   }
 `;
+
+export const Container = styled.div`
+  position: fixed;
+  bottom: 0;
+`;

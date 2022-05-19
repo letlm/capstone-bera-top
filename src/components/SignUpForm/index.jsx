@@ -90,13 +90,13 @@ function SignUpForm() {
     beraTopApi
       .post("/users", userData)
       .then(() => {
-        toast("🍺 Conta criada com sucesso", {
+        toast("🍺 Conta criada com sucesso!", {
           className: "toastify-color-progress-success",
         });
         history.push("/login");
       })
       .catch(() => {
-        toast("❌ Erro ao criar a conta", {
+        toast("❌ Erro ao criar a conta!", {
           className: "toastify-color-progress-error",
         });
       });

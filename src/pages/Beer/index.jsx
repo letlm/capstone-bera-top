@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import BeerCard from "../../components/BeerCard";
 import { useContext } from "react";
 import { ApiContext } from "../../providers/ApiProvider";
-import { ProductDescription, BeerContainer } from "./styles";
+import { ProductDescription, BeerContainer, Container } from "./styles";
 import ListReviews from "../../components/ListReviews";
 
 function Beer() {
@@ -30,7 +30,9 @@ function Beer() {
             )
         )}
       </BeerContainer>
-      <Footer />
+      <Container>
+        <Footer />
+      </Container>
     </>
   );
 }

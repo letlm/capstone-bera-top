@@ -3,6 +3,7 @@ import { ApiContext } from "../../providers/ApiProvider";
 import ReviewsCard from "../ReviewsCard";
 import { useModal } from "../../providers/ModalProvider";
 import ModalComponent from "../Modal";
+import Container from "./styles";
 
 function ListReviews({ productId }) {
   const userStorage = Number(localStorage.getItem("@BeraTop-User"));
@@ -17,7 +18,7 @@ function ListReviews({ productId }) {
   const { modalOpenEdit } = useModal();
 
   return (
-    <ul>
+    <Container>
       {reviews.map((prod) => {
         const sameUser = prod.userId === userStorage;
         return (
@@ -32,7 +33,7 @@ function ListReviews({ productId }) {
       })}
 
       <ModalComponent isEdited={true} modal={modalOpenEdit} edit="edit" />
-    </ul>
+    </Container>
   );
 }
 

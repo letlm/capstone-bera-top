@@ -30,14 +30,21 @@ export const LiBeer = styled.li`
   button {
     width: 160px;
     max-width: 150%;
-    height: 20px;
+    height: 35px;
     border-radius: 20px;
     background-color: var(--yellow-1);
     padding: 2px 6px;
     box-sizing: border-box;
     border: 1px solid var(--yellow-1);
     font-weight: bold;
-    font-size: 14px;
+    font-size: 15px;
+    font-family: "Nunito";
+  }
+
+  button:hover {
+    color: var(--grey-3);
+    border: 1px solid var(--yellow-0);
+    background-color: var(--yellow-0);
   }
 
   .title {
@@ -79,7 +86,7 @@ export const LiBeer = styled.li`
     max-width: ${(props) => (props.beerPage ? "600px" : "")};
 
     button {
-      height: 20px;
+      height: 35px;
     }
 
     .beerContainer {

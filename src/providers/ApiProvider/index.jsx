@@ -30,14 +30,14 @@ function ApiProvider({ children }) {
         },
       })
       .then((response) => {
-        toast("🍺 Review adicionada com sucesso", {
+        toast("🍺 Review adicionada com sucesso!", {
           className: "toastify-color-progress-success",
         });
         setReviews([...reviews, response.data]);
         setChange(!change);
       })
       .catch(() => {
-        toast("❌ Erro ao adicionar o comentário", {
+        toast("❌ Erro ao adicionar o comentário!", {
           className: "toastify-color-progress-error",
         });
       });
@@ -51,14 +51,14 @@ function ApiProvider({ children }) {
         },
       })
       .then((response) => {
-        toast("🍺 Review editada com sucesso", {
+        toast("🍺 Review editada com sucesso!", {
           className: "toastify-color-progress-success",
         });
         productReviews(productId);
         setChange(!change);
       })
       .catch((err) => {
-        toast("❌ Erro ao editar o comentário", {
+        toast("❌ Erro ao editar o comentário!", {
           className: "toastify-color-progress-error",
         });
       });
@@ -73,12 +73,12 @@ function ApiProvider({ children }) {
       })
       .then(
         () => setChange(!change),
-        toast("🍺 Comentário deletado com sucesso", {
+        toast("🍺 Comentário deletado com sucesso!", {
           className: "toastify-color-progress-success",
         })
       )
       .catch(() =>
-        toast("❌ Ops! Algo deu errado, tente novamente", {
+        toast("❌ Ops! Algo deu errado, tente novamente!", {
           className: "toastify-color-progress-error",
         })
       );

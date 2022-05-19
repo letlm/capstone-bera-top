@@ -120,14 +120,14 @@ export const Form = styled.div`
     button {
       font-size: 15px;
       font-weight: bold;
-      color: var(--white);
+      color: var(--grey-3);
       background: var(--yellow-1);
-      height: 37px;
-      border: 1px solid var(--yellow-1);
+      height: 45px;
+      border: 1px solid var(--grey-3);
       border-radius: 4px;
 
       :hover {
-        color: var(--grey-1);
+        color: var(--grey-3);
         background: var(--yellow-0);
         border: 1px solid var(--yellow-0);
       }
@@ -142,13 +142,13 @@ export const Form = styled.div`
 
     button {
       width: 90%;
-      height: 50px;
+      height: 45px;
       font-size: 15px;
       font-weight: 700;
       margin: 0 auto 30px auto;
-      color: var(--grey-0);
+      color: var(--grey-3);
       background: var(--grey-1);
-      border: 1px solid var(--yellow-1);
+      border: 1px solid var(--grey-3);
       border-radius: 3px;
 
       :hover {

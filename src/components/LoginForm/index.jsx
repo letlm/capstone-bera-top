@@ -37,7 +37,7 @@ function FormLogin() {
 
   const handleLogin = async (data) => {
     const response = await beraTopApi.post("/login", data).catch((err) => {
-      toast("❌ E-mail ou senha inválidos", {
+      toast("❌ E-mail ou senha inválidos!", {
         className: "toastify-color-progress-error",
       });
     });
@@ -47,7 +47,7 @@ function FormLogin() {
     localStorage.setItem("@BeraTop-Token", JSON.stringify(accessToken));
     localStorage.setItem("@BeraTop-User", JSON.stringify(user.id));
     setAuthenticated(true);
-    toast("🍺 Login realizado com sucesso", {
+    toast("🍺 Login realizado com sucesso!", {
       className: "toastify-color-progress-success",
     });
     history.push("/");

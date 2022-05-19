@@ -22,7 +22,11 @@ function TermsModal({ setShowModal }) {
             usuário que aceitar os termos de compromisso declara que possui mais
             de 18 anos e se responsabilizada pelas consequências do uso da
             plataforma. O BeraTop apoia e promove o{" "}
-            <a href="https://www.ambev.com.br/ESG/consumo-responsavel/">
+            <a
+              href="https://www.ambev.com.br/ESG/consumo-responsavel/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               consumo responsável
             </a>
           </p>

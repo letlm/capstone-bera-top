@@ -53,7 +53,7 @@ function ReviewsCard({ product, sameUser = false, idReview, token }) {
         </div>
         <div className="commentEdit">
           <p>
-            Comentário: <span>{product.comment}</span>
+            Comentário: <span className="commentSpan">{product.comment}</span>
           </p>
 
           {sameUser && (
