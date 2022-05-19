@@ -5,8 +5,7 @@ export const LiBeer = styled.li`
   max-width: 700px;
   height: fit-content;
   display: flex;
-  /* justify-content: flex-end; */
-  justify-content: flex-start;
+  justify-content: space-around;
   flex-direction: ${(props) => (props.beerPage ? "row" : "column")};
   align-items: center;
   align-self: center;
@@ -47,6 +46,7 @@ export const LiBeer = styled.li`
     font-weight: bold;
     overflow: hidden;
     overflow-wrap: break-word;
+    text-align: center;
     max-width: ${(props) => (props.beerPage ? "16ch" : "120%")};
     text-overflow: ${(props) => (props.beerPage ? "break-word" : "ellipsis")};
     white-space: ${(props) => (props.beerPage ? "pre-line" : "nowrap")};
@@ -99,7 +99,7 @@ export const LiBeer = styled.li`
 `;
 
 export const InfosBeer = styled.div`
-  width: ${(props) => (props.beerPage ? "100px" : "221px")};
+  width: ${(props) => (props.beerPage ? "100%" : "221px")};
   height: 42px;
   justify-content: flex-end;
   display: flex;
@@ -135,7 +135,7 @@ export const InfosBeer = styled.div`
   }
 
   div {
-    width: 221px;
+    width: 100%;
     display: flex;
     justify-content: space-around;
   }
