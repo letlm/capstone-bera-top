@@ -12,7 +12,7 @@ function ListReviews({ productId }) {
 
   useEffect(() => {
     productReviews(productId);
-  }, []);
+  }, [productId, productReviews]);
 
   const { modalOpenEdit } = useModal();
 
