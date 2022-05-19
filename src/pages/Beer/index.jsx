@@ -20,7 +20,7 @@ function Beer() {
         {products.map((product) => {
           if (product.id == id) {
             return (
-              <div key={product.id}>
+              <div key={product.id} className="pageContainer">
                 <BeerCard product={product} key={id} beerPage={"beerPage"} />
 
                 <ProductDescription>
