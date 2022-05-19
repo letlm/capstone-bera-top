@@ -11,6 +11,7 @@ export const Container = styled.div`
 
 export const Context = styled.ul`
   margin: 0 auto;
+  margin-top: 15px;
   width: 310px;
   height: 350px;
   display: flex;
@@ -46,7 +47,6 @@ export const Context = styled.ul`
   }
 
   @media (min-width: 1000px) {
-    margin-top: 15px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
