@@ -53,6 +53,8 @@ function ApiProvider({ children }) {
                     className: "toastify-color-progress-success",
                 });
                 productReviews(productId);
+                setChange(!change)
+                
             })
             .catch((err) => {
                 toast("❌ Erro ao editar o comentário", {

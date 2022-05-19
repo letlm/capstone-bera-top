@@ -2,8 +2,8 @@ import { FaStar } from "react-icons/fa";
 import Star from "./styles";
 import { useState } from "react";
 
-function StarRating() {
-  const [rating, setRating] = useState(null);
+function StarRating({rating, setRating}) {
+  
   const [hover, setHover] = useState();
 
   return (
