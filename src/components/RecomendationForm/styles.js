@@ -5,6 +5,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 30px 0;
+  min-height: calc(100vh - 165px);
 
   h1 {
     margin-left: -160px;
@@ -160,7 +162,7 @@ export const Form = styled.form`
 
     @media (min-width: 640px) {
       width: 390px;
-      height: 450px;
+      height: 400px;
 
       label {
         width: 320px;
