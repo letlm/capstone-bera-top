@@ -10,15 +10,14 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 function ModalComponent({ isEdited = false, modal, edit = "add" }) {
-  const { addReview, editReview, deleteReview, reviews, setReviews } = useContext(ApiContext);
+  const { addReview, editReview } = useContext(ApiContext);
   const { handleCloseModal, editBeer } = useModal();
 
-  
   const token = JSON.parse(localStorage.getItem("@BeraTop-Token"));
   const userId = JSON.parse(localStorage.getItem("@BeraTop-User"));
   const bierId = useParams();
-  
-  const [reviewId, setReviewId] = useState(0)
+
+  const [reviewId, setReviewId] = useState(0);
 
   const { authenticated } = useAuth();
 
@@ -26,7 +25,7 @@ function ModalComponent({ isEdited = false, modal, edit = "add" }) {
     comment: yup.string().required(" Campo obrigatório"),
     price: yup.string().required(" Campo obrigatório"),
   });
-  
+
   const {
     register,
     setValue,
@@ -35,11 +34,11 @@ function ModalComponent({ isEdited = false, modal, edit = "add" }) {
   } = useForm({ resolver: yupResolver(schema) });
 
   useEffect(() => {
-    setValue("comment", editBeer.comment)
-    setValue("price", editBeer.price)
-    setValue("stars", editBeer.stars)
-  }, [editBeer, setValue])
-  
+    setValue("comment", editBeer.comment);
+    setValue("price", editBeer.price);
+    setValue("stars", editBeer.stars);
+  }, [editBeer, setValue]);
+
   const onSubmit = (object) => {
     object.userId = userId;
     object.productId = Number(bierId.id);
@@ -49,14 +48,8 @@ function ModalComponent({ isEdited = false, modal, edit = "add" }) {
 
   const onSubmitEdit = (object) => {
     editReview(editBeer.id, token, object, editBeer.productId);
-    setReviewId(editBeer.id)
+    setReviewId(editBeer.id);
     handleCloseModal("edit");
-  };
-
-  const onSubmitDel = () => {
-    deleteReview(token, reviewId)
-    const deletedReview = reviews.filter((review) => review.id !== reviewId);
-    setReviews(deletedReview);
   };
 
   const customStyles = {
@@ -77,7 +70,6 @@ function ModalComponent({ isEdited = false, modal, edit = "add" }) {
   };
 
   return (
-    
     <div>
       {!authenticated ? (
         <Modal
@@ -104,7 +96,10 @@ function ModalComponent({ isEdited = false, modal, edit = "add" }) {
           style={customStyles}
         >
           <Container>
-            <CloseButton onClick={() => handleCloseModal(edit)}> X </CloseButton>
+            <CloseButton onClick={() => handleCloseModal(edit)}>
+              {" "}
+              X{" "}
+            </CloseButton>
             <form
               onSubmit={
                 isEdited ? handleSubmit(onSubmitEdit) : handleSubmit(onSubmit)
@@ -112,23 +107,14 @@ function ModalComponent({ isEdited = false, modal, edit = "add" }) {
             >
               <section>
                 <label>Comentário: </label>
-                <textarea
-                  name="comment"
-                  type="text"
-                  {...register("comment")}
-                  //defaultValue={editBeer.comment
-                />
+                <textarea name="comment" type="text" {...register("comment")} />
                 <span className="error">{errors.comment?.message}</span>
               </section>
 
               <div>
                 <section>
                   <label>Nota: </label>
-                  <select
-                    name="stars"
-                    {...register("stars")}
-                    //defaultValue={editBeer.stars}
-                  >
+                  <select name="stars" {...register("stars")}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -144,17 +130,12 @@ function ModalComponent({ isEdited = false, modal, edit = "add" }) {
                     type="number"
                     {...register("price")}
                     min="0"
-                    //defaultValue={editBeer.price}
                   />
                   <span className="error">{errors.price?.message}</span>
                 </section>
               </div>
               {isEdited ? (
                 <div>
-                  {" "}
-                  <button onClick={onSubmitDel}>
-                    Deletar
-                  </button>{" "}
                   <button type="submit">Editar</button>
                 </div>
               ) : (
