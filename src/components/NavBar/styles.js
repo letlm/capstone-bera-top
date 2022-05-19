@@ -6,6 +6,7 @@ const Container = styled.div`
   align-items: center;
   width: 90%;
   height: 35px;
+  flex-wrap: wrap;
 
   button {
     margin: 5px;
@@ -41,7 +42,7 @@ const Container = styled.div`
     font-family: "Nunito";
     font-weight: bolder;
     font-size: 1rem;
-    width: 90px;
+    width: 100px;
   }
 
   .dropdown {
