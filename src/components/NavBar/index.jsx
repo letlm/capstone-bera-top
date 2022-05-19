@@ -58,8 +58,8 @@ function NavBar() {
           <button className="select" onClick={() => filterByCategory("Wheat")}>
             Wheat
           </button>
-          <button className="select" onClick={() => filterByCategory("Larger")}>
-            Larger
+          <button className="select" onClick={() => filterByCategory("Lager")}>
+            Lager
           </button>
           <button className="select" onClick={() => filterByCategory("Pilsen")}>
             Pilsen

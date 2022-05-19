@@ -5,7 +5,7 @@ import Leticia from "../../assets/DevLet.png";
 import Regis from "../../assets/DevRegis.png";
 import Luan from "../../assets/DevLuan.png";
 
-const devs = [
+const Devs = [
   {
     name: "Leonardo R.",
     work: "Quality Assurance",
@@ -50,4 +50,4 @@ const devs = [
   },
 ];
 
-export default devs;
+export default Devs;

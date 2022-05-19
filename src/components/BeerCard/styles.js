@@ -14,7 +14,7 @@ export const LiBeer = styled.li`
   box-shadow: ${(props) =>
     props.beerPage ? "" : "10px 9px 42px -20px rgba(0, 0, 0, 0.3)"};
   border-radius: 40px;
-  padding: ${(props) => (props.beerPage ? "" : "5px")};
+  padding: ${(props) => (props.beerPage ? "" : "5px 15px")};
 
   img {
     height: ${(props) => (props.beerPage ? "125px" : "150px")};
